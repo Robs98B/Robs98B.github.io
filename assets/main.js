@@ -53,7 +53,7 @@ const translations = {
     proj_title: "Projects",
     proj_intro: "Selection of recent projects.",
     
-    proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
+    proj_maia_title: "Robotic Prototype — MAIA",
     proj_maia_desc: "Integrated prototype (wheelchair + robotic arm) to test MAIA principles for bidirectional control, developed at TECNALIA (San Sebastian, Spain).",
     proj_maia_code: "Code availability: Private",
 

@@ -1,60 +1,64 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About — Roberto Bonini</title>
-    <meta name="description" content="Chi sono: percorso accademico e interessi di ricerca di Roberto Bonini." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="brand-logo">RB</span><span class="brand-text">Roberto Bonini</span></a>
-      <nav class="site-nav" aria-label="Navigazione principale">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
-        <ul id="nav-list" class="nav-list">
-          <li><a href="about.html" aria-current="page">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="science.html">Science</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Academic Activities</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <a class="brand" href="index.html" data-i18n="brand">Roberto Bonini</a>
+      <nav class="site-nav">
+        <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+        <div class="nav-list">
+          <a class="nav-link" href="about.html" aria-current="page" data-i18n="nav_about">About</a>
+          <a class="nav-link" href="resume.html" data-i18n="nav_resume">Resume</a>
+          <a class="nav-link" href="science.html" data-i18n="nav_science">Science</a>
+          <a class="nav-link" href="projects.html" data-i18n="nav_projects">Projects</a>
+          <a class="nav-link" href="activities.html" data-i18n="nav_activities">Activities</a>
+          <a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a>
+        </div>
+        <div class="actions">
+          <button id="lang-toggle" class="icon-btn lang-btn">🇮🇹 IT</button>
+          <button id="theme-toggle" class="icon-btn">◑</button>
+        </div>
       </nav>
-      <div class="header-actions"><button id="theme-toggle" class="icon-btn" aria-label="Toggle tema">🌙</button></div>
     </header>
 
     <main class="container">
-      <section class="page-intro">
-        <h1>About</h1>
-        <p>Sono un dottorando presso il Dipartimento di Scienze Biomediche e Neuromotorie — Università di Bologna. Porto avanti ricerca all'intersezione tra Intelligenza Artificiale e Neuroscienze, con interesse per interfacce cervello-computer e modelli di apprendimento avanzati.</p>
+      <section class="hero" style="padding-bottom:2rem;">
+        <h1 data-i18n="about_title">About</h1>
+        <p data-i18n="about_intro">I am a PhD student at the Department of Biomedical and Neuromotor Sciences...</p>
       </section>
 
       <section class="cards-grid">
-        <article class="card">
-          <h3>Percorso recente</h3>
-          <p>Dal 2024 sono Dottorando all'Università di Bologna. In precedenza ho conseguito la Laurea magistrale in Artificial Intelligence (2021—2024, 110/110 cum laude) e la Laurea triennale in Ingegneria Informatica (2017—2021).</p>
+        <article class="card" style="--delay:1">
+            <div class="card-content">
+              <h3 data-i18n="ab_card1_title">Recent Path</h3>
+              <p data-i18n="ab_card1_desc">Since 2024 I am a PhD student at the University of Bologna...</p>
+            </div>
         </article>
-        <article class="card">
-          <h3>Esperienze</h3>
-          <p>Ho svolto attività di tutorato in diversi contesti accademici e ho partecipato a progetti di ricerca e sviluppo, tra cui un prototipo robotico integrato sedia a rotelle + braccio robotico nell'ambito del progetto MAIA.</p>
+        <article class="card" style="--delay:2">
+            <div class="card-content">
+              <h3 data-i18n="ab_card2_title">Experiences</h3>
+              <p data-i18n="ab_card2_desc">I have carried out tutoring activities in various academic contexts...</p>
+            </div>
         </article>
-        <article class="card">
-          <h3>Interessi</h3>
-          <p>AI, neural decoding, interfacce uomo-macchina, LLMs e applicazioni data-driven per sistemi adattivi.</p>
+        <article class="card" style="--delay:3">
+            <div class="card-content">
+              <h3 data-i18n="ab_card3_title">Interests</h3>
+              <p data-i18n="ab_card3_desc">AI, neural decoding, human-machine interfaces...</p>
+            </div>
         </article>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p>© <span id="year"></span> Roberto Bonini</p>
+    <footer style="text-align:center; padding:3rem; opacity:0.6; font-size: 0.9rem;">
+      © <span id="year"></span> <span data-i18n="footer_cr">Roberto Bonini</span>
     </footer>
 
     <script src="assets/main.js"></script>
   </body>
-  </html>
-
+</html>

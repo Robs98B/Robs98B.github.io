@@ -4,25 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Roberto Bonini — AI Research</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
   <body>
     <header class="site-header">
-      <div class="brand">Roberto Bonini</div>
+      <a class="brand" href="index.html" data-i18n="brand">Roberto Bonini</a>
       <nav class="site-nav">
-        <button class="mobile-toggle">☰</button>
-        <ul class="nav-list" style="list-style:none; padding:0; margin:0; display:flex; gap:8px;">
-          <li><a class="nav-link" href="about.html" data-i18n="nav_about">About</a></li>
-          <li><a class="nav-link" href="resume.html" data-i18n="nav_resume">Resume</a></li>
-          <li><a class="nav-link" href="science.html" data-i18n="nav_science">Science</a></li>
-          <li><a class="nav-link" href="projects.html" data-i18n="nav_projects">Projects</a></li>
-          <li><a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a></li>
-        </ul>
-        <div class="action-group">
-          <button id="lang-toggle" class="icon-btn" style="font-size:0.9rem; width:auto; padding:0 12px; border-radius:12px;">🇮🇹 IT</button>
-          <button id="theme-toggle" class="icon-btn">◑</button>
+        <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+        <div class="nav-list">
+          <a class="nav-link" href="about.html" data-i18n="nav_about">About</a>
+          <a class="nav-link" href="resume.html" data-i18n="nav_resume">Resume</a>
+          <a class="nav-link" href="science.html" data-i18n="nav_science">Science</a>
+          <a class="nav-link" href="projects.html" data-i18n="nav_projects">Projects</a>
+          <a class="nav-link" href="activities.html" data-i18n="nav_activities">Activities</a>
+          <a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a>
+        </div>
+        <div class="actions">
+          <button id="lang-toggle" class="icon-btn lang-btn">🇮🇹 IT</button>
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">◑</button>
         </div>
       </nav>
     </header>
@@ -31,38 +31,49 @@
       <section class="hero">
         <h1 data-i18n="hero_title">Exploring the intersection of AI & Neuroscience</h1>
         <p data-i18n="hero_desc">PhD Student at Unibo focusing on Neural Decoding and biologically plausible learning models.</p>
-        <div style="display:flex; gap:16px; justify-content:center;">
-          <a class="btn primary" href="science.html" data-i18n="btn_science">Explore Science</a>
-          <a class="btn secondary" href="contact.html" data-i18n="btn_contact">Contact Me</a>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="science.html" data-i18n="btn_science">Explore Science</a>
+          <a class="btn btn-secondary" href="contact.html" data-i18n="btn_contact">Contact Me</a>
         </div>
       </section>
 
       <section class="cards-grid">
-        <a class="card" href="science.html">
-          <div class="card-badge" data-i18n="sect_focus">Focus</div>
-          <h3>Science</h3>
-          <p data-i18n="card_science_desc">My scientific publications, conference abstracts and posters.</p>
+        <a class="card" href="science.html" style="--delay:1">
+          <div class="card-content">
+            <span class="badge" data-i18n="badge_focus">Focus</span>
+            <h3 data-i18n="card_sci_title">Science</h3>
+            <p data-i18n="card_sci_desc">My scientific publications, conference abstracts and posters.</p>
+          </div>
         </a>
-        <a class="card" href="projects.html">
-          <div class="card-badge" data-i18n="sect_dev">Dev</div>
-          <h3>Projects</h3>
-          <p data-i18n="card_projects_desc">Software development, robotic prototypes (MAIA) and open source code.</p>
+
+        <a class="card" href="projects.html" style="--delay:2">
+          <div class="card-content">
+            <span class="badge" data-i18n="badge_dev">Dev</span>
+            <h3 data-i18n="card_proj_title">Projects</h3>
+            <p data-i18n="card_proj_desc">Software development, robotic prototypes (MAIA) and open source code.</p>
+          </div>
         </a>
-        <a class="card" href="resume.html">
-          <div class="card-badge" data-i18n="sect_career">Career</div>
-          <h3>Resume</h3>
-          <p data-i18n="card_resume_desc">My complete academic path, education and milestones.</p>
+
+        <a class="card" href="resume.html" style="--delay:3">
+          <div class="card-content">
+            <span class="badge" data-i18n="badge_career">Career</span>
+            <h3 data-i18n="card_res_title">Resume</h3>
+            <p data-i18n="card_res_desc">My complete academic path, education and milestones.</p>
+          </div>
         </a>
-        <a class="card" href="about.html">
-          <div class="card-badge" data-i18n="sect_profile">Profile</div>
-          <h3>About Me</h3>
-          <p data-i18n="card_about_desc">Who I am, my research interests and vision.</p>
+
+        <a class="card" href="about.html" style="--delay:4">
+          <div class="card-content">
+            <span class="badge" data-i18n="badge_profile">Profile</span>
+            <h3 data-i18n="card_about_title">About Me</h3>
+            <p data-i18n="card_about_desc">Who I am, my research interests and vision.</p>
+          </div>
         </a>
       </section>
     </main>
     
-    <footer style="text-align:center; padding:2rem; opacity:0.6;">
-      © <span id="year"></span> Roberto Bonini
+    <footer style="text-align:center; padding:3rem; opacity:0.6; font-size: 0.9rem;">
+      © <span id="year"></span> <span data-i18n="footer_cr">Roberto Bonini</span>
     </footer>
 
     <script src="assets/main.js"></script>

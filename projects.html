@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Roberto Bonini</title>
+    <meta name="description" content="Progetti e collaborazioni di Roberto Bonini." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-logo">RB</span><span class="brand-text">Roberto Bonini</span></a>
+      <nav class="site-nav" aria-label="Navigazione principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="science.html">Science</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="activities.html">Academic Activities</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"><button id="theme-toggle" class="icon-btn" aria-label="Toggle tema">🌙</button></div>
+    </header>
+
+    <main class="container">
+      <section class="page-intro">
+        <h1>Projects</h1>
+        <p>Selezione di progetti recenti.</p>
+      </section>
+
+      <section class="cards-grid">
+        <article class="card">
+          <div class="badge">2023</div>
+          <h3>Prototipo robotico — MAIA</h3>
+          <p>Prototipo integrato (sedia a rotelle + braccio robotico) per testare principi MAIA per controllo bidirezionale, sviluppato presso TECNALIA (San Sebastian, Spagna).</p>
+        </article>
+        <article class="card">
+          <div class="badge">2024</div>
+          <h3>AICAMP — MAI4CAREU</h3>
+          <p>Presentazione e discussione su temi di ricerca AI, indagine del gruppo sui Large Language Models (LLMs) in collaborazione con Università di Cipro e Università di Bologna.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Roberto Bonini</p>
+    </footer>
+
+    <script src="assets/main.js"></script>
+  </body>
+  </html>
+

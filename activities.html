@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Academic Activities — Roberto Bonini</title>
+    <meta name="description" content="Attività accademiche e didattiche con filtro per anno dal 2021." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-logo">RB</span><span class="brand-text">Roberto Bonini</span></a>
+      <nav class="site-nav" aria-label="Navigazione principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="science.html">Science</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="activities.html" aria-current="page">Academic Activities</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"><button id="theme-toggle" class="icon-btn" aria-label="Toggle tema">🌙</button></div>
+    </header>
+
+    <main class="container">
+      <section class="page-intro">
+        <h1>Academic Activities</h1>
+        <p>Filtra per anno (dal 2021). Elenco aggiornato di tutorati e attività.</p>
+      </section>
+
+      <section class="filters" aria-label="Filtri attività">
+        <div class="filter-group">
+          <label for="year-select" class="filter-label">Anno</label>
+          <select id="year-select">
+            <option value="all" selected>Tutti</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="items" class="cards-grid">
+        <article class="card item" data-year="2025">
+          <div class="badge">2025</div>
+          <h3>Attività 2025–2026</h3>
+          <p>Attività didattiche e accademiche in corso (voci dettagliate disponibili tramite pagina Unibo).</p>
+        </article>
+        <article class="card item" data-year="2024">
+          <div class="badge">2024</div>
+          <h3>Tutor didattico — Algoritmi e Strutture di Dati</h3>
+          <p>A.A. 2024/2025 (2° ciclo) — Laurea Triennale in Informatica, Università di Bologna.</p>
+        </article>
+        <article class="card item" data-year="2023">
+          <div class="badge">2023</div>
+          <h3>Tutor — CESIA</h3>
+          <p>Supporto nelle procedure di ammissione ai Corsi di studio — Università di Bologna.</p>
+        </article>
+        <article class="card item" data-year="2022">
+          <div class="badge">2022</div>
+          <h3>Tutor didattico — Laurea Magistrale AI</h3>
+          <p>Supporto per studenti in difficoltà — Ingegneria-Architettura, Università di Bologna.</p>
+        </article>
+      </section>
+
+      <p id="no-results" class="muted" hidden>Nessuna attività per l'anno selezionato.</p>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Roberto Bonini</p>
+    </footer>
+
+    <script src="assets/main.js"></script>
+    <script src="assets/filters.js"></script>
+  </body>
+  </html>
+

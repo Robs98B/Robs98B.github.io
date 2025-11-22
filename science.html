@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Science — Roberto Bonini</title>
+    <meta name="description" content="Produzione scientifica: pubblicazioni, abstract, poster con filtri per categoria e anno." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-logo">RB</span><span class="brand-text">Roberto Bonini</span></a>
+      <nav class="site-nav" aria-label="Navigazione principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="science.html" aria-current="page">Science</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="activities.html">Academic Activities</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"><button id="theme-toggle" class="icon-btn" aria-label="Toggle tema">🌙</button></div>
+    </header>
+
+    <main class="container">
+      <section class="page-intro">
+        <h1>Science</h1>
+        <p>Filtra per categoria e anno. Le voci si aggiornano in tempo reale.</p>
+      </section>
+
+      <section class="filters" aria-label="Filtri Science">
+        <div class="filter-group">
+          <span class="filter-label">Categoria</span>
+          <div class="chip-group" role="group" aria-label="Categorie">
+            <label class="chip"><input type="checkbox" name="category" value="publication" checked> Pubblicazioni</label>
+            <label class="chip"><input type="checkbox" name="category" value="abstract" checked> Abstract</label>
+            <label class="chip"><input type="checkbox" name="category" value="poster" checked> Poster</label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label for="year-select" class="filter-label">Anno</label>
+          <select id="year-select">
+            <option value="all" selected>Tutti</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="items" class="cards-grid">
+        <!-- Abstract example -->
+        <article class="card item" data-category="abstract" data-year="2025">
+          <div class="badge">Abstract</div>
+          <h3>Society for Neuroscience 2025</h3>
+          <p>"Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces."</p>
+          <div class="meta"><span>Anno: 2025</span></div>
+        </article>
+
+        <!-- Placeholder publication/poster cards can be added when disponibili -->
+      </section>
+
+      <p id="no-results" class="muted" hidden>Nessun risultato corrisponde ai filtri selezionati.</p>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Roberto Bonini</p>
+    </footer>
+
+    <script src="assets/main.js"></script>
+    <script src="assets/filters.js"></script>
+  </body>
+  </html>
+

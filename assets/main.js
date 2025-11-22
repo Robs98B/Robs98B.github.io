@@ -2,11 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
   const toggle = document.getElementById('theme-toggle');
-  const navToggle = document.querySelector('.nav-toggle');
-  const navList = document.getElementById('nav-list');
-  const yearSpan = document.getElementById('year');
-
-  // 1. Theme Management
+  
+  // 1. Gestione Tema (Dark/Light)
   const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
@@ -17,57 +14,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (toggle) {
-    updateIcon(root.getAttribute('data-theme') === 'light');
+    toggle.innerHTML = root.getAttribute('data-theme') === 'light' 
+      ? '<span style="font-size:1.4rem">☀️</span>' 
+      : '<span style="font-size:1.4rem">🌙</span>';
+      
     toggle.addEventListener('click', () => {
       const current = root.getAttribute('data-theme');
-      const newTheme = current === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateIcon(newTheme === 'light');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      toggle.innerHTML = next === 'light' ? '<span style="font-size:1.4rem">☀️</span>' : '<span style="font-size:1.4rem">🌙</span>';
     });
   }
 
-  function updateIcon(isLight) {
-    // Usa icone semplici o SVG se preferisci
-    toggle.textContent = isLight ? '☀️' : '🌙';
-  }
-
-  // 2. Mobile Navigation
-  if (navToggle && navList) {
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation(); // Evita chiusure immediate
-      const isOpen = navList.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-      navToggle.textContent = isOpen ? '✕' : '☰';
-    });
-
-    // Chiudi menu cliccando fuori
-    document.addEventListener('click', (e) => {
-      if (navList.classList.contains('open') && !navList.contains(e.target) && !navToggle.contains(e.target)) {
-        navList.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.textContent = '☰';
-      }
+  // 2. Mobile Menu
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList = document.querySelector('.nav-list');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      navList.classList.toggle('open');
+      navToggle.textContent = navList.classList.contains('open') ? '✕' : '☰';
     });
   }
 
-  // 3. Auto-Year
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-  // 4. Fade-in Animation for Cards (Scroll Reveal)
+  // 3. Staggered Animations (Effetto entrata fluido)
+  // Applica un ritardo progressivo agli elementi .card basato sulla loro posizione
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
+        // Aggiunge un piccolo delay inline per l'effetto a cascata
+        entry.target.style.animationDelay = `${index * 100}ms`;
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.card, .timeline-item').forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  document.querySelectorAll('.card, .timeline-event').forEach(el => {
+    el.style.animationPlayState = 'paused'; // Mette in pausa finché non visibile
     observer.observe(el);
   });
+
+  // 4. Copyright Year
+  const yearEl = document.getElementById('year');
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
 });

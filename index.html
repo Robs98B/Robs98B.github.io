@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Roberto Bonini — PhD Student & AI Researcher</title>
-    <meta name="description" content="Sito personale di Roberto Bonini: Ricerca AI, Neuroscienze, Pubblicazioni." />
+    <title>Roberto Bonini — Research & AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,65 +13,59 @@
   <body>
     <header class="site-header">
       <a class="brand" href="index.html">
-        <div class="brand-logo">RB</div>
-        <span class="brand-text">Roberto Bonini</span>
+        <span>Roberto Bonini</span>
       </a>
       <nav class="site-nav">
-        <button class="nav-toggle" aria-label="Menu">☰</button>
-        <ul id="nav-list" class="nav-list">
-          <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="science.html">Science</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="activities.html">Activities</a></li>
-          <li><a href="contact.html">Contact</a></li>
+        <button class="nav-toggle">☰</button>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="resume.html">Resume</a></li>
+          <li><a class="nav-link" href="science.html">Science</a></li>
+          <li><a class="nav-link" href="projects.html">Projects</a></li>
+          <li><a class="nav-link" href="activities.html">Activities</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <div class="header-actions">
-        <button id="theme-toggle" class="icon-btn" aria-label="Cambia tema">🌙</button>
-      </div>
+      <button id="theme-toggle" class="icon-btn"></button>
     </header>
 
     <main class="container">
       <section class="hero">
+        <span class="hero-label">PhD Student @ Unibo</span>
         <h1>Esplorando l'intersezione tra Intelligenza Artificiale e Neuroscienze.</h1>
-        <p>PhD Student presso l'Università di Bologna. Mi occupo di Brain-Computer Interfaces, Neural Decoding e modelli di apprendimento ispirati alla biologia.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="science.html">Le mie pubblicazioni</a>
+        <p>Mi occupo di Neural Decoding, Brain-Computer Interfaces e modelli di apprendimento ispirati alla biologia per creare sistemi adattivi avanzati.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <a class="btn primary" href="science.html">Esplora Ricerca</a>
           <a class="btn secondary" href="contact.html">Contattami</a>
         </div>
       </section>
 
-      <section class="page-intro">
-        <h2>Panoramica</h2>
-      </section>
-
       <section class="cards-grid">
-        <a class="card" href="about.html">
-          <div class="badge">Profilo</div>
-          <h3>Chi sono</h3>
-          <p>Il mio percorso accademico e la visione che guida la mia ricerca.</p>
-        </a>
         <a class="card" href="science.html">
-          <div class="badge">Ricerca</div>
-          <h3>Science</h3>
-          <p>Pubblicazioni, poster e abstract conferenze (SfN, etc.).</p>
+          <div class="card-badge">Focus</div>
+          <h3>Science & Publications</h3>
+          <p>Le mie pubblicazioni scientifiche, abstract per conferenze e poster presentati.</p>
         </a>
         <a class="card" href="projects.html">
-          <div class="badge">Dev & Tech</div>
+          <div class="card-badge">Dev</div>
           <h3>Projects</h3>
-          <p>Progetti pratici, collaborazioni (MAIA) e codice open source.</p>
+          <p>Sviluppo software, prototipi robotici (MAIA) e implementazioni open source.</p>
         </a>
         <a class="card" href="resume.html">
-          <div class="badge">CV</div>
+          <div class="card-badge">Career</div>
           <h3>Resume</h3>
-          <p>Timeline della mia formazione ed esperienze lavorative.</p>
+          <p>Il mio percorso accademico completo, formazione e traguardi raggiunti.</p>
+        </a>
+        <a class="card" href="about.html">
+          <div class="card-badge">Profile</div>
+          <h3>About Me</h3>
+          <p>Chi sono, i miei interessi di ricerca e la mia visione.</p>
         </a>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p>&copy; <span id="year"></span> Roberto Bonini • Built with GitHub Pages</p>
+    <footer style="text-align:center; padding:3rem 0; color:var(--md-sys-color-secondary);">
+      <p>© <span id="year"></span> Roberto Bonini</p>
     </footer>
 
     <script src="assets/main.js"></script>

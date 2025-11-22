@@ -65,12 +65,11 @@ const translations = {
     // Activities
     act_title: "Academic Activities",
     act_2024_place: "Department of Computer Science, University of Bologna",
-    act_2024_title: "Teaching tutor for the Bachelor Degree in Computer Science for the course of Algorithms and Data Structures",
-    act_2024_desc: "A.Y. 2024/2025 (2nd cycle)",
+    act_2024_title: "Teaching tutor for the Bachelor Degree in Computer Science",
+    act_2024_desc: "Support for the course of Algorithms and Data Structures",
     act_2023_place: "CESIA, University of Bologna",
     act_2023_title: "Support in admission procedures for Study Courses",
-    act_2023_desc: "Administrative support for admissions processes",
-    act_2022_place: "Computer Science, University of Bologna",
+    act_2022_place: "Department of Computer Science, University of Bologna",
     act_2022_title: "Teaching tutor for the Master's Degree in Artificial Intelligence",
     act_2022_desc: "Support for students in difficulty",
     
@@ -138,11 +137,11 @@ const translations = {
     proj_intro: "Selezione di progetti recenti.",
     
     proj_maia_title: "Sistema di IA multifunzionale, adattivo e interattivo per agire in contesti multipli (MAIA)",
-    proj_maia_desc: "Prototipo che integra sedia a rotelle e braccio robotico per dimostrare i principi MAIA: controllo multifunzionale, adattivo e interattivo in diversi contesti.",
+    proj_maia_desc: "Prototipo che integra sedia a rotelle e braccio robotico per dimostrare i principi MAIA.",
     proj_maia_code: "Disponibilità codice: Privato",
 
     proj_aicamp_title: "AICAMP — MAI4CAREU",
-    proj_aicamp_desc: "Presentazione e discussione su temi di ricerca AI, indagine del gruppo sui Large Language Models (LLMs) in collaborazione con Università di Cipro e Università di Bologna.",
+    proj_aicamp_desc: "Presentazione e discussione su temi di ricerca AI, indagine del gruppo sui Large Language Models (LLMs).",
     proj_aicamp_code: "Disponibilità codice: No code",
 
     // Activities

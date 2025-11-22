@@ -136,11 +136,11 @@ const translations = {
     proj_title: "Progetti",
     proj_intro: "Selezione di progetti recenti.",
     
-    proj_maia_title: "Sistema di IA multifunzionale, adattivo e interattivo per agire in contesti multipli (MAIA)",
+    proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
     proj_maia_desc: "Prototipo che integra sedia a rotelle e braccio robotico per dimostrare i principi MAIA.",
     proj_maia_code: "Disponibilità codice: Privato",
 
-    proj_aicamp_title: "AICAMP — MAI4CAREU",
+    proj_aicamp_title: "AICAMP (MAI4CAREU)",
     proj_aicamp_desc: "Presentazione e discussione su temi di ricerca AI, indagine del gruppo sui Large Language Models (LLMs).",
     proj_aicamp_code: "Disponibilità codice: No code",
 

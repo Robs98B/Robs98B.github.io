@@ -3,7 +3,7 @@
 /* --- MATERIAL 3 TOKENS & PALETTE --- */
 :root {
   /* Core Colors */
-  --md-primary: #D0BCFF; /* Light Purple for dark bg */
+  --md-primary: #D0BCFF;
   --md-on-primary: #381E72;
   --md-primary-container: #4F378B;
   --md-on-primary-container: #EADDFF;
@@ -16,10 +16,10 @@
   --md-tertiary-container: #633B48;
   --md-on-tertiary-container: #FFD8E4;
 
-  /* Backgrounds: REALLY DARK GRAY as requested */
+  /* Backgrounds: PLAIN DARK GRAY */
   --md-surface: #121212; 
   --md-surface-dim: #0F0F0F;
-  --md-surface-bright: #1E1E1E; /* Cards */
+  --md-surface-bright: #1E1E1E;
   
   --md-on-surface: #E6E1E5;
   --md-on-surface-variant: #CAC4D0;
@@ -45,45 +45,12 @@
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--md-surface);
+  background-color: var(--md-surface); /* Plain Dark Gray */
   color: var(--md-on-surface);
   transition: background-color 0.4s ease, color 0.4s ease;
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
-}
-
-/* --- AMBIENT BACKGROUND (Subtler on Dark Gray) --- */
-.ambient-bg {
-  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
-  overflow: hidden; pointer-events: none;
-}
-.blob {
-  position: absolute; border-radius: 50%;
-  filter: blur(90px); opacity: 0.25; /* Reduced opacity for better contrast */
-  animation: float 25s infinite alternate;
-}
-.blob-1 {
-  top: -10%; left: -10%; width: 50vw; height: 50vw;
-  background: var(--md-primary-container);
-  animation-delay: -5s;
-}
-.blob-2 {
-  bottom: -10%; right: -10%; width: 60vw; height: 60vw;
-  background: var(--md-secondary-container);
-  animation-delay: -10s;
-}
-.blob-3 {
-  top: 40%; left: 40%; width: 40vw; height: 40vw;
-  background: var(--md-tertiary-container);
-  animation-delay: -2s;
-}
-
-@keyframes float {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0, 0) scale(1); }
 }
 
 a { text-decoration: none; color: inherit; }
@@ -100,7 +67,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .site-header {
   position: sticky; top: 1rem; z-index: 1000;
   width: min(900px, 94%); margin: 0 auto;
-  background: rgba(30, 30, 30, 0.6); /* Darker glass */
+  background: rgba(30, 30, 30, 0.6);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--shape-pill);
@@ -129,7 +96,7 @@ h1, h2, h3, h4, p { margin: 0; }
   transition: all 0.3s var(--ease-spring);
   position: relative; overflow: hidden;
 }
-/* Hover Blob Effect */
+/* Hover Blob Effect for Nav */
 .nav-link::before {
   content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0;
   background: var(--md-secondary-container); border-radius: 50%;
@@ -141,7 +108,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .nav-link[aria-current="page"] {
   background-color: var(--md-primary); color: var(--md-on-primary);
-  box-shadow: 0 4px 15px rgba(208, 188, 255, 0.2); /* Adjusted shadow color */
+  box-shadow: 0 4px 15px rgba(208, 188, 255, 0.2);
 }
 .nav-link[aria-current="page"]::before { content: none; }
 
@@ -154,13 +121,14 @@ h1, h2, h3, h4, p { margin: 0; }
 .icon-btn:hover { background: var(--md-secondary-container); transform: rotate(15deg) scale(1.1); }
 .lang-btn { font-size: 0.8rem; font-weight: 700; width: auto; padding: 0 12px; border-radius: 8px; }
 
-/* --- HOME PROFILE (Preserved Blob) --- */
+/* --- PROFILE / HOME LAYOUT --- */
 .profile-container {
   display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem;
   align-items: center; margin-top: 3rem; animation: var(--anim-entry);
 }
 .profile-card-wrapper { position: relative; z-index: 1; }
-/* The requested card blob */
+
+/* THE Profile Blob (Preserved) */
 .profile-bg-blob {
   position: absolute; top: 50%; left: 50%;
   width: 110%; height: 110%;
@@ -168,11 +136,12 @@ h1, h2, h3, h4, p { margin: 0; }
   transform: translate(-50%, -50%);
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   animation: morph 8s ease-in-out infinite;
-  z-index: -1; opacity: 0.3; /* Slightly higher opacity for visibility on dark */
+  z-index: -1; opacity: 0.3;
 }
+
 .profile-card {
   text-align: center; padding: 3rem 2rem;
-  background: rgba(30, 30, 30, 0.4); /* Dark glass */
+  background: rgba(30, 30, 30, 0.4);
   backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--shape-xl);
@@ -211,7 +180,7 @@ h1, h2, h3, h4, p { margin: 0; }
   box-shadow: 0 6px 20px rgba(var(--md-primary), 0.4);
 }
 
-/* Bio */
+/* Bio & Interests */
 .bio-section h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--md-on-surface); font-weight: 800; }
 .bio-text { font-size: 1.15rem; line-height: 1.7; color: var(--md-on-surface-variant); margin-bottom: 3rem; }
 
@@ -246,12 +215,13 @@ h1, h2, h3, h4, p { margin: 0; }
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; padding: 1rem 0; }
 .card {
   position: relative; background: var(--md-surface-bright); padding: 2rem; border-radius: var(--shape-xl);
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border for dark mode */
+  border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   display: flex; flex-direction: column; transition: all 0.4s var(--ease-spring);
   opacity: 0; animation: var(--anim-entry); animation-delay: calc(var(--delay, 0) * 100ms);
   overflow: hidden; isolation: isolate;
 }
+/* Card Blobs (Inside Card) */
 .card::before {
   content: ''; position: absolute; z-index: -1; top: -50px; right: -50px; width: 150px; height: 150px;
   background: linear-gradient(135deg, var(--md-primary-container), var(--md-tertiary-container));
@@ -267,7 +237,7 @@ h1, h2, h3, h4, p { margin: 0; }
   color: var(--md-on-secondary-container); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem;
 }
 
-/* --- TIMELINE (Resume) --- */
+/* --- TIMELINE --- */
 .timeline { max-width: 800px; margin: 0 auto; position: relative; padding-left: 2rem; }
 .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--md-surface-bright); border-radius: 2px; }
 .timeline-item { position: relative; margin-bottom: 3rem; animation: var(--anim-entry); animation-delay: calc(var(--delay, 0) * 150ms); }

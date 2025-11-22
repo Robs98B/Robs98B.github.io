@@ -8,6 +8,11 @@ class ScienceSection {
 
   init() {
     this.renderCards();
+    // Re-apply translations after rendering cards
+    if (typeof applyLanguage === 'function') {
+      const currentLang = localStorage.getItem('lang') || 'en';
+      applyLanguage(currentLang);
+    }
   }
 
   renderCards() {

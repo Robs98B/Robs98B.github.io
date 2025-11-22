@@ -215,7 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentLang = localStorage.getItem('lang') || 'en';
   let langHoverTimeout;
   
-  function applyLanguage(lang) {
+  // Make applyLanguage globally accessible
+  window.applyLanguage = function(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang][key]) {
@@ -226,14 +227,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langToggle) langToggle.textContent = translations[lang]['btn_lang'];
     localStorage.setItem('lang', lang);
     currentLang = lang;
-  }
+  };
 
   applyLanguage(currentLang);
 
   if (langToggle) {
     langToggle.addEventListener('click', () => {
       const next = currentLang === 'en' ? 'it' : 'en';
-      applyLanguage(next);
+      window.applyLanguage(next);
     });
     
     // Remove hover animation after 1 second

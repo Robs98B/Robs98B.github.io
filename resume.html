@@ -1,34 +1,59 @@
-<main class="container">
-  <h1 style="margin-bottom:3rem; font-size:2.5rem;">Resume</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume — Roberto Bonini</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand"><a href="index.html">RB</a></div>
+      <nav class="site-nav">
+         <a class="nav-link" href="index.html" data-i18n="nav_home">Home</a>
+         <a class="nav-link" href="science.html" data-i18n="nav_science">Science</a>
+         <a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a>
+         <div class="action-group">
+            <button id="lang-toggle" class="icon-btn">🇮🇹 IT</button>
+         </div>
+      </nav>
+    </header>
 
-  <div class="resume-timeline">
-    
-    <div class="timeline-event">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2024 — Presente</div>
-      <div class="timeline-card">
-        <h3>Dottorando (PhD)</h3>
-        <p style="color:var(--md-sys-color-on-surface-variant)">Università di Bologna — Dipartimento di Scienze Biomediche e Neuromotorie.</p>
+    <main class="container resume-container">
+      <h1 style="font-size:3rem; margin-bottom:2rem; text-align:center;" data-i18n="nav_resume">Resume</h1>
+
+      <div class="timeline-block">
+        
+        <div class="timeline-entry">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2024 — Present</span>
+          <div class="timeline-card">
+            <h3 data-i18n="resume_phd_title">PhD Student</h3>
+            <p data-i18n="resume_phd_desc">Dept. of Biomedical and Neuromotor Sciences — University of Bologna.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2021 — 2024</span>
+          <div class="timeline-card">
+            <h3 data-i18n="resume_msc_title">MSc in Artificial Intelligence</h3>
+            <p data-i18n="resume_msc_desc">110/110 cum laude — University of Bologna.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-entry">
+          <div class="timeline-dot"></div>
+          <span class="timeline-date">2017 — 2021</span>
+          <div class="timeline-card">
+            <h3 data-i18n="resume_bsc_title">BSc in Computer Engineering</h3>
+            <p data-i18n="resume_bsc_desc">University of Palermo.</p>
+          </div>
+        </div>
+
       </div>
-    </div>
-
-    <div class="timeline-event">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2021 — 2024</div>
-      <div class="timeline-card">
-        <h3>Laurea Magistrale in AI</h3>
-        <p>Università di Bologna. Voto: 110/110 cum laude.</p>
-      </div>
-    </div>
-
-    <div class="timeline-event">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2017 — 2021</div>
-      <div class="timeline-card">
-        <h3>Laurea Triennale in Ing. Informatica</h3>
-        <p>Università di Palermo.</p>
-      </div>
-    </div>
-
-  </div>
-</main>
+    </main>
+    <script src="assets/main.js"></script>
+  </body>
+</html>

@@ -1,81 +1,66 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Science — Roberto Bonini</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="site-header">
-       <a class="brand" href="index.html">Roberto Bonini</a>
+       <div class="brand"><a href="index.html">RB</a></div>
        <nav class="site-nav">
-        <button class="nav-toggle">☰</button>
-        <ul class="nav-list">
-          <li><a class="nav-link" href="about.html">About</a></li>
-          <li><a class="nav-link" href="resume.html">Resume</a></li>
-          <li><a class="nav-link" href="science.html" aria-current="page">Science</a></li>
-          <li><a class="nav-link" href="projects.html">Projects</a></li>
-          <li><a class="nav-link" href="activities.html">Activities</a></li>
-          <li><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-       <button id="theme-toggle" class="icon-btn">🌙</button>
+          <a class="nav-link" href="index.html" data-i18n="nav_home">Home</a>
+          <button id="lang-toggle" class="icon-btn">🇮🇹 IT</button>
+       </nav>
     </header>
 
     <main class="container">
-      <section style="margin-bottom:3rem">
-        <h1 style="font-size:2.5rem; margin-bottom:0.5rem">Science</h1>
-        <p style="color:var(--md-sys-color-secondary)">Pubblicazioni, Poster e Abstract.</p>
-      </section>
+      <h1 style="margin-bottom:2rem;">Science</h1>
 
-      <section class="filters-container">
-        <div class="filter-group">
-          <h4>Categoria</h4>
-          <div class="chip-row">
-            <label class="filter-chip">
-              <input type="checkbox" name="category" value="publication" checked>
-              <span class="check-icon">✓</span>
-              <span>Pubblicazioni</span>
-            </label>
-            <label class="filter-chip">
-              <input type="checkbox" name="category" value="abstract" checked>
-              <span class="check-icon">✓</span>
-              <span>Abstract</span>
-            </label>
-            <label class="filter-chip">
-              <input type="checkbox" name="category" value="poster" checked>
-              <span class="check-icon">✓</span>
-              <span>Poster</span>
-            </label>
-          </div>
+      <div class="filters-area">
+        <div>
+           <div class="filter-title" data-i18n="filters_cat">Category</div>
+           <div class="chip-group">
+             <label class="filter-chip">
+               <input type="checkbox" name="category" value="publication" checked>
+               <div class="chip-icon">✓</div>
+               <span data-i18n="lbl_pub">Publications</span>
+             </label>
+             <label class="filter-chip">
+               <input type="checkbox" name="category" value="abstract" checked>
+               <div class="chip-icon">✓</div>
+               <span data-i18n="lbl_abs">Abstracts</span>
+             </label>
+             <label class="filter-chip">
+               <input type="checkbox" name="category" value="poster" checked>
+               <div class="chip-icon">✓</div>
+               <span data-i18n="lbl_pos">Posters</span>
+             </label>
+           </div>
         </div>
-
-        <div class="filter-group" style="margin-left:auto;">
-          <h4>Anno</h4>
-          <div class="select-wrapper">
-            <select id="year-select">
-              <option value="all">Tutti gli anni</option>
+        
+        <div style="margin-left:auto;">
+           <div class="filter-title" data-i18n="filters_year">Year</div>
+           <select id="year-select" style="padding:8px; border-radius:8px; border:1px solid #ccc;">
+              <option value="all">All</option>
               <option value="2025">2025</option>
               <option value="2024">2024</option>
-              <option value="2023">2023</option>
-            </select>
-          </div>
+           </select>
         </div>
-      </section>
+      </div>
 
-      <section id="items" class="cards-grid">
+      <div id="items" class="cards-grid">
         <article class="card item" data-category="abstract" data-year="2025">
           <div class="card-badge">Abstract</div>
           <h3>Society for Neuroscience 2025</h3>
           <p>"Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces."</p>
-          <div style="margin-top:1rem; font-size:0.85rem; color:var(--md-sys-color-primary)">2025</div>
+          <small style="margin-top:1rem; color:var(--md-primary); font-weight:bold;">2025</small>
         </article>
-        
-        </section>
+      </div>
       
-      <p id="no-results" style="text-align:center; margin-top:2rem; color:var(--md-sys-color-secondary)" hidden>Nessun risultato trovato.</p>
+      <p id="no-results" style="text-align:center; display:none;">No results found.</p>
     </main>
 
     <script src="assets/main.js"></script>

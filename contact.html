@@ -1,31 +1,54 @@
-<main class="container">
-  <div style="max-width:600px; margin:0 auto;">
-    <h1 style="font-size:2.5rem; margin-bottom:2rem;">Contattami</h1>
-    
-    <form action="mailto:roberto.bonini4@unibo.it" method="post" enctype="text/plain">
-      
-      <div class="material-field">
-        <input type="text" name="name" id="name" placeholder=" " required>
-        <label for="name">Il tuo nome</label>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Roberto Bonini</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand"><a href="index.html">RB</a></div>
+      <nav class="site-nav">
+         <a class="nav-link" href="index.html" data-i18n="nav_home">Home</a>
+         <div class="action-group">
+            <button id="lang-toggle" class="icon-btn">🇮🇹 IT</button>
+         </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="form-wrapper">
+        <div style="text-align:center; margin-bottom:3rem;">
+          <h1 data-i18n="contact_title">Get in Touch</h1>
+          <p data-i18n="contact_sub">Send me a message or visit my institutional page.</p>
+        </div>
+
+        <form action="mailto:roberto.bonini4@unibo.it" method="post" enctype="text/plain">
+          <div class="md-field">
+            <input type="text" name="name" id="name" placeholder=" " required>
+            <label for="name" data-i18n="form_name">Your Name</label>
+          </div>
+
+          <div class="md-field">
+            <input type="email" name="email" id="email" placeholder=" " required>
+            <label for="email" data-i18n="form_email">Your Email</label>
+          </div>
+
+          <div class="md-field">
+            <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
+            <label for="message" data-i18n="form_msg">Message</label>
+          </div>
+
+          <button type="submit" class="btn primary" style="width:100%" data-i18n="form_send">Send Message</button>
+        </form>
+
+        <div style="text-align:center; margin-top:3rem;">
+           <a href="https://www.unibo.it/sitoweb/roberto.bonini4" target="_blank" class="btn secondary" data-i18n="contact_unibo">Visit Unibo Profile</a>
+        </div>
       </div>
-
-      <div class="material-field">
-        <input type="email" name="email" id="email" placeholder=" " required>
-        <label for="email">La tua email</label>
-      </div>
-
-      <div class="material-field">
-        <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
-        <label for="message">Messaggio</label>
-      </div>
-
-      <button type="submit" class="btn primary" style="width:100%">Invia Messaggio</button>
-    </form>
-
-    <div style="margin-top:3rem; text-align:center;">
-      <a href="https://www.unibo.it/sitoweb/roberto.bonini4" target="_blank" class="btn secondary">
-        Visita profilo Unibo
-      </a>
-    </div>
-  </div>
-</main>
+    </main>
+    <script src="assets/main.js"></script>
+  </body>
+</html>

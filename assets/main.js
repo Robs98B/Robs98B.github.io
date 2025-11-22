@@ -54,24 +54,28 @@ const translations = {
     proj_title: "Projects",
     proj_intro: "Selection of recent projects.",
     
-    proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
+    proj_maia_title: "Multifunctional, Adaptive and Interactive AI system to act in multiple contexts (MAIA)",
     proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles.",
     proj_maia_code: "Code availability: Private",
 
     proj_aicamp_title: "AICAMP (MAI4CAREU)",
     proj_aicamp_desc: "Presentation and discussion on AI research topics, group investigation on Large Language Models (LLMs).",
     proj_aicamp_code: "Code availability: No code",
+    
+    // Common
+    btn_article: "Article",
 
     // Activities
     act_title: "Academic Activities",
+    act_intro: "Filter by year (since 2021). Updated list of tutoring and activities.",
     act_2024_place: "Department of Computer Science, University of Bologna",
     act_2024_title: "Teaching tutor for the Bachelor Degree in Computer Science",
-    act_2024_desc: "Support for the course of Algorithms and Data Structures",
+    act_2024_desc: "Teaching support for algorithms, data structures, and programming exercises",
     act_2023_place: "CESIA, University of Bologna",
-    act_2023_title: "Support in admission procedures for Study Courses",
+    act_2023_title: "Administrative support for admission procedures",
     act_2022_place: "Department of Computer Science, University of Bologna",
-    act_2022_title: "Teaching tutor for the Master's Degree in Artificial Intelligence",
-    act_2022_desc: "Support for students in difficulty",
+    act_2022_title: "Teaching tutor for Master's Degree in Artificial Intelligence",
+    act_2022_desc: "Academic tutoring for AI coursework and research methodology",
     
     // Contact
     contact_title: "Get in Touch",
@@ -143,17 +147,21 @@ const translations = {
     proj_aicamp_title: "AICAMP (MAI4CAREU)",
     proj_aicamp_desc: "Presentazione e discussione su temi di ricerca AI, indagine del gruppo sui Large Language Models (LLMs).",
     proj_aicamp_code: "Disponibilità codice: No code",
+    
+    // Common
+    btn_article: "Articolo",
 
     // Activities
     act_title: "Attività Accademiche",
     act_2024_place: "Dipartimento di Informatica, Università di Bologna",
-    act_2024_title: "Tutor didattico per la laurea triennale in Informatica",
-    act_2024_desc: "Supporto per il corso di Algoritmi e Strutture Dati",
+    act_2024_title: "Tutor didattico per il corso di Algoritmi e Strutture di Dati (Laurea Triennale in Informatica)",
+    act_2024_desc: "Supporto didattico per algoritmi, strutture dati ed esercizi di programmazione",
     act_2023_place: "CESIA, Università di Bologna",
-    act_2023_title: "Supporto nelle procedure di ammissione ai Corsi di studio",
+    act_2023_title: "Supporto amministrativo per le procedure di ammissione",
+    act_2023_desc: "Assistenza per immatricolazione e procedure di ammissione ai corsi di informatica",
     act_2022_place: "Dipartimento di Informatica, Università di Bologna",
     act_2022_title: "Tutor didattico per la Laurea Magistrale in Intelligenza Artificiale",
-    act_2022_desc: "Supporto per studenti in difficoltà",
+    act_2022_desc: "Tutoraggio accademico per corsi di AI e metodologia di ricerca",
 
     // Contact
     contact_title: "Contattami",
@@ -173,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const savedTheme = localStorage.getItem('theme');
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let themeHoverTimeout;
   
   if (savedTheme) {
     root.setAttribute('data-theme', savedTheme);
@@ -187,11 +196,24 @@ document.addEventListener('DOMContentLoaded', () => {
       root.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
     });
+    
+    // Remove hover animation after 1 second
+    themeToggle.addEventListener('mouseenter', () => {
+      clearTimeout(themeHoverTimeout);
+    });
+    
+    themeToggle.addEventListener('mouseleave', () => {
+      themeHoverTimeout = setTimeout(() => {
+        themeToggle.style.transform = '';
+        themeToggle.style.background = '';
+      }, 1000);
+    });
   }
 
   // --- 2. LANGUAGE LOGIC ---
   const langToggle = document.getElementById('lang-toggle');
   let currentLang = localStorage.getItem('lang') || 'en';
+  let langHoverTimeout;
   
   function applyLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -213,6 +235,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const next = currentLang === 'en' ? 'it' : 'en';
       applyLanguage(next);
     });
+    
+    // Remove hover animation after 1 second
+    langToggle.addEventListener('mouseenter', () => {
+      clearTimeout(langHoverTimeout);
+    });
+    
+    langToggle.addEventListener('mouseleave', () => {
+      langHoverTimeout = setTimeout(() => {
+        langToggle.style.transform = '';
+        langToggle.style.background = '';
+      }, 1000);
+    });
   }
 
   // --- 3. MOBILE NAV LOGIC ---
@@ -227,6 +261,32 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         navList.classList.add('open');
         mobileToggle.textContent = '✕';
+      }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navList.classList.contains('open') && 
+          !navList.contains(e.target) && 
+          !mobileToggle.contains(e.target)) {
+        navList.classList.remove('open');
+        mobileToggle.textContent = '☰';
+      }
+    });
+    
+    // Close menu when clicking on nav links
+    navList.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('open');
+        mobileToggle.textContent = '☰';
+      });
+    });
+    
+    // Close menu on window resize if above mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 850 && navList.classList.contains('open')) {
+        navList.classList.remove('open');
+        mobileToggle.textContent = '☰';
       }
     });
   }

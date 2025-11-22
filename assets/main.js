@@ -11,7 +11,7 @@ const translations = {
     nav_contact: "Contact",
     btn_lang: "🇮🇹 IT",
 
-    // Profile / Index
+    // Profile
     role_title: "PhD Student",
     role_inst: "University of Bologna",
     btn_unibo: "Unibo Page",
@@ -23,7 +23,7 @@ const translations = {
     int_nc: "Neural Coding & Modeling",
     int_sp: "Signal Processing",
 
-    // Resume Page
+    // Resume
     resume_title: "Resume",
     res_curr_date: "2024 — Present",
     res_phd_title: "PhD Student",
@@ -35,7 +35,7 @@ const translations = {
     res_bsc_title: "BSc in Computer Engineering",
     res_bsc_desc: "University of Palermo.",
 
-    // Science Page
+    // Science
     sci_title: "Science",
     filter_cat: "Category",
     lbl_pub: "Publications",
@@ -44,22 +44,26 @@ const translations = {
     filter_year: "Year",
     filter_all: "All",
     no_results: "No results found for current filters.",
-    sci_abs_2025_title: "Society for Neuroscience 2025",
-    sci_abs_2025_desc: "\"Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces.\"",
+    // Science Items
+    sci_sfn_venue: "Society for Neuroscience 2025",
+    sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
+    sci_sfn_auth: "Roberto Bonini, et al.",
 
-    // Projects Page
+    // Projects
     proj_title: "Projects",
     proj_intro: "Selection of recent projects.",
+    
     proj_maia_title: "Robotic Prototype — MAIA",
     proj_maia_desc: "Integrated prototype (wheelchair + robotic arm) to test MAIA principles for bidirectional control, developed at TECNALIA (San Sebastian, Spain).",
+    proj_maia_code: "Code availability: Private",
+
     proj_aicamp_title: "AICAMP — MAI4CAREU",
     proj_aicamp_desc: "Presentation and discussion on AI research topics, group investigation on Large Language Models (LLMs) in collaboration with University of Cyprus and University of Bologna.",
+    proj_aicamp_code: "Code availability: No code",
 
-    // Activities Page
+    // Activities
     act_title: "Academic Activities",
     act_intro: "Filter by year (since 2021). Updated list of tutoring and activities.",
-    act_2025_title: "Activities 2025–2026",
-    act_2025_desc: "Ongoing teaching and academic activities (detailed entries available via Unibo page).",
     act_2024_title: "Teaching Tutor — Algorithms and Data Structures",
     act_2024_desc: "A.Y. 2024/2025 (2nd cycle) — Bachelor's Degree in Computer Science, University of Bologna.",
     act_2023_title: "Tutor — CESIA",
@@ -67,7 +71,7 @@ const translations = {
     act_2022_title: "Teaching Tutor — Master's Degree AI",
     act_2022_desc: "Support for students in difficulty — Engineering-Architecture, University of Bologna.",
     
-    // Contact Page
+    // Contact
     contact_title: "Get in Touch",
     contact_sub: "Send me a message or visit my institutional page.",
     lbl_name: "Your Name",
@@ -87,7 +91,7 @@ const translations = {
     nav_contact: "Contatti",
     btn_lang: "🇬🇧 EN",
 
-    // Profile / Index
+    // Profile
     role_title: "Dottorando (PhD)",
     role_inst: "Università di Bologna",
     btn_unibo: "Pagina Unibo",
@@ -120,22 +124,26 @@ const translations = {
     filter_year: "Anno",
     filter_all: "Tutti",
     no_results: "Nessun risultato per i filtri selezionati.",
-    sci_abs_2025_title: "Society for Neuroscience 2025",
-    sci_abs_2025_desc: "\"Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces.\"",
+    
+    sci_sfn_venue: "Society for Neuroscience 2025",
+    sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
+    sci_sfn_auth: "Roberto Bonini, et al.",
 
     // Projects
     proj_title: "Progetti",
     proj_intro: "Selezione di progetti recenti.",
+    
     proj_maia_title: "Prototipo Robotico — MAIA",
     proj_maia_desc: "Prototipo integrato (sedia a rotelle + braccio robotico) per testare principi MAIA per controllo bidirezionale, sviluppato presso TECNALIA (San Sebastian, Spagna).",
+    proj_maia_code: "Disponibilità codice: Privato",
+
     proj_aicamp_title: "AICAMP — MAI4CAREU",
     proj_aicamp_desc: "Presentazione e discussione su temi di ricerca AI, indagine del gruppo sui Large Language Models (LLMs) in collaborazione con Università di Cipro e Università di Bologna.",
+    proj_aicamp_code: "Disponibilità codice: No code",
 
     // Activities
     act_title: "Attività Accademiche",
     act_intro: "Filtra per anno (dal 2021). Elenco aggiornato di tutorati e attività.",
-    act_2025_title: "Attività 2025–2026",
-    act_2025_desc: "Attività didattiche e accademiche in corso (voci dettagliate disponibili tramite pagina Unibo).",
     act_2024_title: "Tutor didattico — Algoritmi e Strutture di Dati",
     act_2024_desc: "A.A. 2024/2025 (2° ciclo) — Laurea Triennale in Informatica, Università di Bologna.",
     act_2023_title: "Tutor — CESIA",

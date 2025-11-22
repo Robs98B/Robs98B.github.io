@@ -127,13 +127,13 @@ const translations = {
     
     sci_sfn_venue: "Society for Neuroscience 2025",
     sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
-    sci_sfn_auth: "Roberto Bonini, et al.",
+    sci_sfn_auth: "Roberto Bonini, M. Filippini, F. E. Vaccari, M. De Vitis, P. Fattori",
 
     // Projects
     proj_title: "Progetti",
     proj_intro: "Selezione di progetti recenti.",
     
-    proj_maia_title: "Prototipo Robotico — MAIA",
+    proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
     proj_maia_desc: "Prototipo integrato (sedia a rotelle + braccio robotico) per testare principi MAIA per controllo bidirezionale, sviluppato presso TECNALIA (San Sebastian, Spagna).",
     proj_maia_code: "Disponibilità codice: Privato",
 

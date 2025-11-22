@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Roberto Bonini — AI Research</title>
+    <title>Roberto Bonini — Research Portfolio</title>
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
@@ -13,7 +13,6 @@
       <nav class="site-nav">
         <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
         <div class="nav-list">
-          <a class="nav-link" href="about.html" data-i18n="nav_about">About</a>
           <a class="nav-link" href="resume.html" data-i18n="nav_resume">Resume</a>
           <a class="nav-link" href="science.html" data-i18n="nav_science">Science</a>
           <a class="nav-link" href="projects.html" data-i18n="nav_projects">Projects</a>
@@ -28,48 +27,40 @@
     </header>
 
     <main class="container">
-      <section class="hero">
-        <h1 data-i18n="hero_title">Exploring the intersection of AI & Neuroscience</h1>
-        <p data-i18n="hero_desc">PhD Student at Unibo focusing on Neural Decoding and biologically plausible learning models.</p>
-        <div class="btn-group">
-          <a class="btn btn-primary" href="science.html" data-i18n="btn_science">Explore Science</a>
-          <a class="btn btn-secondary" href="contact.html" data-i18n="btn_contact">Contact Me</a>
-        </div>
-      </section>
-
-      <section class="cards-grid">
-        <a class="card" href="science.html" style="--delay:1">
-          <div class="card-content">
-            <span class="badge" data-i18n="badge_focus">Focus</span>
-            <h3 data-i18n="card_sci_title">Science</h3>
-            <p data-i18n="card_sci_desc">My scientific publications, conference abstracts and posters.</p>
+      <div class="profile-container">
+        
+        <section class="profile-card">
+          <div class="profile-img-wrapper">
+             <img src="assets/profile.jpg" alt="Roberto Bonini" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Roberto+Bonini&background=EADDFF&color=21005D&size=256'">
           </div>
-        </a>
+          <h1 class="profile-name" data-i18n="brand">Roberto Bonini</h1>
+          <div class="profile-role" data-i18n="role_title">PhD Student</div>
+          <div class="profile-inst" data-i18n="role_inst">University of Bologna</div>
 
-        <a class="card" href="projects.html" style="--delay:2">
-          <div class="card-content">
-            <span class="badge" data-i18n="badge_dev">Dev</span>
-            <h3 data-i18n="card_proj_title">Projects</h3>
-            <p data-i18n="card_proj_desc">Software development, robotic prototypes (MAIA) and open source code.</p>
+          <div class="social-links">
+             <a href="#" target="_blank" class="social-btn">LinkedIn</a>
+             <a href="https://www.unibo.it/sitoweb/roberto.bonini4" target="_blank" class="social-btn" data-i18n="btn_unibo">Unibo Page</a>
           </div>
-        </a>
+        </section>
 
-        <a class="card" href="resume.html" style="--delay:3">
-          <div class="card-content">
-            <span class="badge" data-i18n="badge_career">Career</span>
-            <h3 data-i18n="card_res_title">Resume</h3>
-            <p data-i18n="card_res_desc">My complete academic path, education and milestones.</p>
-          </div>
-        </a>
+        <section class="bio-section">
+          <h2 data-i18n="bio_title">About Me</h2>
+          <p class="bio-text" data-i18n="bio_text">
+            I am a PhD student at the Department of Biomedical and Neuromotor Sciences, University of Bologna. My research lies at the intersection of Artificial Intelligence and Neuroscience, focusing on how we can bridge the gap between biological and artificial learning.
+          </p>
 
-        <a class="card" href="about.html" style="--delay:4">
-          <div class="card-content">
-            <span class="badge" data-i18n="badge_profile">Profile</span>
-            <h3 data-i18n="card_about_title">About Me</h3>
-            <p data-i18n="card_about_desc">Who I am, my research interests and vision.</p>
+          <div class="interests-area">
+             <h3 data-i18n="interests_title">Research Interests</h3>
+             <div class="interest-chips">
+               <span class="interest-pill" data-i18n="int_ml">Machine & Deep Learning</span>
+               <span class="interest-pill" data-i18n="int_bci">Brain-Computer Interfaces</span>
+               <span class="interest-pill" data-i18n="int_nc">Neural Coding & Modeling</span>
+               <span class="interest-pill" data-i18n="int_sp">Signal Processing</span>
+             </div>
           </div>
-        </a>
-      </section>
+        </section>
+
+      </div>
     </main>
     
     <footer style="text-align:center; padding:3rem; opacity:0.6; font-size: 0.9rem;">

@@ -127,7 +127,7 @@ const translations = {
     
     sci_sfn_venue: "Society for Neuroscience 2025",
     sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
-    sci_sfn_auth: "Roberto Bonini, et al.",
+    sci_sfn_auth: "Roberto Bonini, Roberto Bonini, M. Filippini, F.E. Vaccari, M. De Vitis, P. Fattori.",
 
     // Projects
     proj_title: "Progetti",

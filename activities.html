@@ -8,11 +8,18 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
   <body>
+    <div class="ambient-bg">
+       <div class="blob blob-1"></div>
+       <div class="blob blob-2"></div>
+       <div class="blob blob-3"></div>
+    </div>
+    
     <header class="site-header">
-      <a class="brand" href="index.html" data-i18n="brand">Roberto Bonini</a>
+      <a class="brand-logo" href="index.html">RB</a>
       <nav class="site-nav">
         <button class="mobile-toggle">☰</button>
         <div class="nav-list">
+          <a class="nav-link" href="index.html" data-i18n="nav_about">About</a>
           <a class="nav-link" href="resume.html" data-i18n="nav_resume">Resume</a>
           <a class="nav-link" href="science.html" data-i18n="nav_science">Science</a>
           <a class="nav-link" href="projects.html" data-i18n="nav_projects">Projects</a>
@@ -66,32 +73,24 @@
 
       <section id="items" class="cards-grid">
         <article class="card item" data-year="2025" style="--delay:1">
-          <div class="card-content">
             <div class="badge">2025</div>
             <h3 data-i18n="act_2025_title">Activities 2025–2026</h3>
             <p data-i18n="act_2025_desc">Activities currently ongoing...</p>
-          </div>
         </article>
         <article class="card item" data-year="2024" style="--delay:2">
-          <div class="card-content">
             <div class="badge">2024</div>
             <h3 data-i18n="act_2024_title">Tutor didattico — Algoritmi</h3>
             <p data-i18n="act_2024_desc">A.A. 2024/2025...</p>
-          </div>
         </article>
         <article class="card item" data-year="2023" style="--delay:3">
-          <div class="card-content">
             <div class="badge">2023</div>
             <h3 data-i18n="act_2023_title">Tutor — CESIA</h3>
             <p data-i18n="act_2023_desc">Supporto procedure...</p>
-          </div>
         </article>
         <article class="card item" data-year="2022" style="--delay:4">
-          <div class="card-content">
             <div class="badge">2022</div>
             <h3 data-i18n="act_2022_title">Tutor didattico — AI</h3>
             <p data-i18n="act_2022_desc">Supporto studenti...</p>
-          </div>
         </article>
       </section>
       <p id="no-results" class="muted" style="display:none; text-align:center;" data-i18n="no_results">No results.</p>

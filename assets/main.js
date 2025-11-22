@@ -2,8 +2,8 @@
 
 const translations = {
   en: {
-    // Nav (Removed 'About')
-    brand: "Roberto Bonini",
+    // Nav
+    nav_about: "About",
     nav_resume: "Resume",
     nav_science: "Science",
     nav_projects: "Projects",
@@ -79,7 +79,7 @@ const translations = {
   
   it: {
     // Nav
-    brand: "Roberto Bonini",
+    nav_about: "Chi Sono",
     nav_resume: "Curriculum",
     nav_science: "Ricerca",
     nav_projects: "Progetti",

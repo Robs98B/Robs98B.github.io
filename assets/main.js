@@ -146,14 +146,12 @@ const translations = {
 
     // Activities
     act_title: "Attività Accademiche",
-    act_intro: "Filtra per anno (dal 2021). Elenco aggiornato di tutorati e attività.",
     act_2024_place: "Dipartimento di Informatica, Università di Bologna",
-    act_2024_title: "Tutor didattico per il corso di Algoritmi e Strutture di Dati (Laurea Triennale in Informatica)",
-    act_2024_desc: "A.A. 2024/2025 (2° ciclo)",
+    act_2024_title: "Tutor didattico per la laurea triennale in Informatica.",
+    act_2024_desc: "Supporto per il corso di Algoritmi e Strutture Dati.",
     act_2023_place: "CESIA, Università di Bologna",
     act_2023_title: "Supporto nelle procedure di ammissione ai Corsi di studio",
-    act_2023_desc: "Supporto amministrativo per le procedure di ammissione",
-    act_2022_place: "Informatica, Università di Bologna",
+    act_2022_place: "Dipartimento di Informatica, Università di Bologna",
     act_2022_title: "Tutor didattico per la Laurea Magistrale in Intelligenza Artificiale",
     act_2022_desc: "Supporto per studenti in difficoltà",
 

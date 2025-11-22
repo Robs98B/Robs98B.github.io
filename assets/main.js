@@ -58,19 +58,21 @@ const translations = {
     proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles.",
     proj_maia_code: "Code availability: Private",
 
-    proj_aicamp_title: "AICAMP — MAI4CAREU",
+    proj_aicamp_title: "AICAMP (MAI4CAREU)",
     proj_aicamp_desc: "Presentation and discussion on AI research topics, group investigation on Large Language Models (LLMs).",
     proj_aicamp_code: "Code availability: No code",
 
     // Activities
     act_title: "Academic Activities",
-    act_intro: "Filter by year (since 2021). Updated list of tutoring and activities.",
-    act_2024_title: "Teaching Tutor — Algorithms and Data Structures",
-    act_2024_desc: "A.Y. 2024/2025 (2nd cycle) — Bachelor's Degree in Computer Science, University of Bologna.",
-    act_2023_title: "Tutor — CESIA",
-    act_2023_desc: "Support in admission procedures for Study Courses — University of Bologna.",
-    act_2022_title: "Teaching Tutor — Master's Degree AI",
-    act_2022_desc: "Support for students in difficulty — Engineering-Architecture, University of Bologna.",
+    act_2024_place: "Department of Computer Science, University of Bologna",
+    act_2024_title: "Teaching tutor for the Bachelor Degree in Computer Science for the course of Algorithms and Data Structures",
+    act_2024_desc: "A.Y. 2024/2025 (2nd cycle)",
+    act_2023_place: "CESIA, University of Bologna",
+    act_2023_title: "Support in admission procedures for Study Courses",
+    act_2023_desc: "Administrative support for admissions processes",
+    act_2022_place: "Computer Science, University of Bologna",
+    act_2022_title: "Teaching tutor for the Master's Degree in Artificial Intelligence",
+    act_2022_desc: "Support for students in difficulty",
     
     // Contact
     contact_title: "Get in Touch",
@@ -146,12 +148,15 @@ const translations = {
     // Activities
     act_title: "Attività Accademiche",
     act_intro: "Filtra per anno (dal 2021). Elenco aggiornato di tutorati e attività.",
-    act_2024_title: "Tutor didattico — Algoritmi e Strutture di Dati",
-    act_2024_desc: "A.A. 2024/2025 (2° ciclo) — Laurea Triennale in Informatica, Università di Bologna.",
-    act_2023_title: "Tutor — CESIA",
-    act_2023_desc: "Supporto nelle procedure di ammissione ai Corsi di studio — Università di Bologna.",
-    act_2022_title: "Tutor didattico — Laurea Magistrale AI",
-    act_2022_desc: "Supporto per studenti in difficoltà — Ingegneria-Architettura, Università di Bologna.",
+    act_2024_place: "Dipartimento di Informatica, Università di Bologna",
+    act_2024_title: "Tutor didattico per il corso di Algoritmi e Strutture di Dati (Laurea Triennale in Informatica)",
+    act_2024_desc: "A.A. 2024/2025 (2° ciclo)",
+    act_2023_place: "CESIA, Università di Bologna",
+    act_2023_title: "Supporto nelle procedure di ammissione ai Corsi di studio",
+    act_2023_desc: "Supporto amministrativo per le procedure di ammissione",
+    act_2022_place: "Informatica, Università di Bologna",
+    act_2022_title: "Tutor didattico per la Laurea Magistrale in Intelligenza Artificiale",
+    act_2022_desc: "Supporto per studenti in difficoltà",
 
     // Contact
     contact_title: "Contattami",

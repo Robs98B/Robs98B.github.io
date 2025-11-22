@@ -54,7 +54,7 @@ const translations = {
     proj_title: "Projects",
     proj_intro: "Selection of recent projects.",
     
-    proj_maia_title: "Multifunctional, Adaptive and Interactive AI system to act in multiple contexts (MAIA)",
+    proj_maia_title: "Multifunctional, adaptive and interactive AI system to act in multiple contexts (MAIA)",
     proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles.",
     proj_maia_code: "Code availability: Private",
 

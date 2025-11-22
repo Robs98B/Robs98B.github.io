@@ -48,14 +48,14 @@ const translations = {
     // Science Items
     sci_sfn_venue: "Society for Neuroscience 2025",
     sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
-    sci_sfn_auth: "Roberto Bonini, et al.",
+    sci_sfn_auth: "Roberto Bonini, M. Filippini, F. E. Vaccari, M. De Vitisi, P. Fattori",
 
     // Projects
     proj_title: "Projects",
     proj_intro: "Selection of recent projects.",
     
-    proj_maia_title: "Robotic Prototype — MAIA",
-    proj_maia_desc: "Integrated prototype (wheelchair + robotic arm) to test MAIA principles for bidirectional control, developed at TECNALIA (San Sebastian, Spain).",
+    proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
+    proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles: multifunctional, adaptive and interactive control across contexts.",
     proj_maia_code: "Code availability: Private",
 
     proj_aicamp_title: "AICAMP — MAI4CAREU",
@@ -129,14 +129,14 @@ const translations = {
     
     sci_sfn_venue: "Society for Neuroscience 2025",
     sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
-    sci_sfn_auth: "Roberto Bonini, et al.",
+    sci_sfn_auth: "Roberto Bonini, M. Filippini, F. E. Vaccari, M. De Vitisi, P. Fattori",
 
     // Projects
     proj_title: "Progetti",
     proj_intro: "Selezione di progetti recenti.",
     
-    proj_maia_title: "Prototipo Robotico — MAIA",
-    proj_maia_desc: "Prototipo integrato (sedia a rotelle + braccio robotico) per testare principi MAIA per controllo bidirezionale, sviluppato presso TECNALIA (San Sebastian, Spagna).",
+    proj_maia_title: "Sistema di IA multifunzionale, adattivo e interattivo per agire in contesti multipli (MAIA)",
+    proj_maia_desc: "Prototipo che integra sedia a rotelle e braccio robotico per dimostrare i principi MAIA: controllo multifunzionale, adattivo e interattivo in diversi contesti.",
     proj_maia_code: "Disponibilità codice: Privato",
 
     proj_aicamp_title: "AICAMP — MAI4CAREU",

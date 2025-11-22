@@ -72,18 +72,19 @@ h1, h2, h3, h4, p { margin: 0; }
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--shape-pill);
   padding: 0.75rem 1.5rem;
-  display: flex; align-items: center; justify-content: center; /* Changed to center since Brand is gone */
+  /* Centered since Brand is hidden */
+  display: flex; align-items: center; justify-content: center; 
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
-/* Brand logo style removed or hidden as requested, but keeping class if needed for layout adjustments */
 .brand-logo {
   display: none; /* Hidden per request */
 }
 
 .site-nav { display: flex; align-items: center; gap: 0.5rem; width: 100%; justify-content: space-between; }
 .nav-list { display: flex; gap: 4px; margin: 0 auto; } /* Centered nav list */
+
 .nav-link {
   padding: 0.6rem 1.2rem; border-radius: var(--shape-pill);
   font-size: 0.9rem; font-weight: 600; color: var(--md-on-surface-variant);
@@ -200,7 +201,7 @@ h1, h2, h3, h4, p { margin: 0; }
 /* --- HERO --- */
 .hero { text-align: center; padding: 4rem 1rem 3rem; max-width: 900px; margin: 0 auto; animation: var(--anim-entry); }
 .hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem); /* REDUCED SIZE */
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Reduced from 3rem-5rem */
   line-height: 1.1; font-weight: 900; margin-bottom: 1rem;
   background: linear-gradient(120deg, var(--md-on-surface), var(--md-primary));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -214,7 +215,13 @@ h1, h2, h3, h4, p { margin: 0; }
   position: relative; background: var(--md-surface-bright); padding: 2rem; border-radius: var(--shape-xl);
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  display: flex; flex-direction: column; transition: all 0.4s var(--ease-spring);
+  
+  /* FLEX UPDATE FOR SPACING */
+  display: flex; 
+  flex-direction: column; 
+  height: 100%;
+  
+  transition: all 0.4s var(--ease-spring);
   opacity: 0; animation: var(--anim-entry); animation-delay: calc(var(--delay, 0) * 100ms);
   overflow: hidden; isolation: isolate;
 }
@@ -245,10 +252,28 @@ h1, h2, h3, h4, p { margin: 0; }
   margin-bottom: 1.5rem;
 }
 .card-year {
-  margin-top: auto; font-size: 0.9rem; font-weight: 800; color: var(--md-outline);
+  margin-top: auto; /* Pushes to bottom */
+  font-size: 0.9rem; font-weight: 800; color: var(--md-outline);
 }
 
-/* --- PROJECT CARD SPECIFIC --- */
+/* --- PROJECT SPECIFIC --- */
+.card-tech {
+  font-size: 0.85rem; font-family: monospace; color: var(--md-secondary); margin-bottom: 0.5rem;
+}
+.card-type {
+  align-self: flex-start; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--md-tertiary); margin-bottom: 0.5rem;
+}
+
+/* --- ACTIVITY SPECIFIC --- */
+.card-role {
+  align-self: flex-start; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--md-primary); margin-bottom: 0.5rem;
+}
+.card-context {
+  font-size: 0.9rem; font-weight: 600; color: var(--md-outline); margin-bottom: 0.5rem;
+}
+
 .code-note {
   margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 0.85rem; font-family: monospace; color: var(--md-tertiary);
@@ -281,7 +306,8 @@ h1, h2, h3, h4, p { margin: 0; }
 /* --- FILTERS --- */
 .filters-container {
   background: rgba(30, 30, 30, 0.5); backdrop-filter: blur(10px);
-  border-radius: var(--shape-xl); padding: 1rem 1.5rem; /* REDUCED PADDING */
+  border-radius: var(--shape-xl); 
+  padding: 1rem 1.5rem; /* Reduced from 1.5rem 2rem */
   margin-bottom: 3rem;
   display: flex; flex-direction: column; gap: 1.5rem; border: 1px solid var(--md-outline-variant);
 }

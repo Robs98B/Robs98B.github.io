@@ -55,11 +55,11 @@ const translations = {
     proj_intro: "Selection of recent projects.",
     
     proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
-    proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles: multifunctional, adaptive and interactive control across contexts.",
+    proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles.",
     proj_maia_code: "Code availability: Private",
 
     proj_aicamp_title: "AICAMP — MAI4CAREU",
-    proj_aicamp_desc: "Presentation and discussion on AI research topics, group investigation on Large Language Models (LLMs) in collaboration with University of Cyprus and University of Bologna.",
+    proj_aicamp_desc: "Presentation and discussion on AI research topics, group investigation on Large Language Models (LLMs).",
     proj_aicamp_code: "Code availability: No code",
 
     // Activities

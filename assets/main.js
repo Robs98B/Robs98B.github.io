@@ -54,7 +54,7 @@ const translations = {
     proj_title: "Projects",
     proj_intro: "Selection of recent projects.",
     
-    proj_maia_title: "Multifunctional, adaptive and interactive AI system to act in multiple contexts (MAIA)",
+    proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
     proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles.",
     proj_maia_code: "Code availability: Private",
 
@@ -84,7 +84,41 @@ const translations = {
     lbl_email: "Your Email",
     lbl_msg: "Message",
     btn_send: "Send Message",
-    footer_cr: "Roberto Bonini"
+    footer_cr: "Roberto Bonini",
+    
+    // Resume - New dynamic cards
+    res_view_details: "View Details",
+    res_hide_details: "Hide Details",
+    // PhD
+    res_phd_position: "PhD Student",
+    res_phd_department: "Dept. of Biomedical and Neuromotor Sciences",
+    res_phd_university: "University of Bologna",
+    res_phd_description: "Research focus on machine learning and biomedical applications",
+    res_phd_children_research_position: "Research Assistant",
+    res_phd_children_research_department: "Biomedical Engineering Lab",
+    res_phd_children_research_description: "Developing AI models for medical image analysis",
+    
+    // MSc
+    res_msc_position: "MSc in Artificial Intelligence",
+    res_msc_department: "Department of Computer Science and Engineering",
+    res_msc_university: "University of Bologna",
+    res_msc_description: "110/110 cum laude, thesis on deep learning for computer vision",
+    res_msc_children_thesis_position: "Thesis Student",
+    res_msc_children_thesis_department: "AI and Vision Lab",
+    res_msc_children_thesis_description: "Thesis: 'Advanced Deep Learning Techniques for Medical Image Segmentation'",
+    
+    // BSc
+    res_bsc_position: "BSc in Computer Engineering",
+    res_bsc_department: "Department of Engineering",
+    res_bsc_university: "University of Palermo",
+    res_bsc_description: "Foundation in computer engineering and software development",
+    res_bsc_children_erasmus_position: "Erasmus+ Exchange Student",
+    res_bsc_children_erasmus_department: "Department of Informatics",
+    res_bsc_children_erasmus_university: "University of Piraeus, Greece",
+    res_bsc_children_erasmus_description: "Studied computer science and explored Greek culture from September 2019 to February 2020",
+    res_bsc_children_internship_position: "Software Engineering Intern",
+    res_bsc_children_internship_department: "IT Department",
+    res_bsc_children_internship_description: "Developed web applications for university management system"
   },
   
   it: {
@@ -170,7 +204,41 @@ const translations = {
     lbl_email: "La tua Email",
     lbl_msg: "Messaggio",
     btn_send: "Invia Messaggio",
-    footer_cr: "Roberto Bonini"
+    footer_cr: "Roberto Bonini",
+    
+    // Resume - New dynamic cards
+    res_view_details: "Vedi Dettagli",
+    res_hide_details: "Nascondi Dettagli",
+    // PhD
+    res_phd_position: "Dottorando (PhD)",
+    res_phd_department: "Dip. di Scienze Biomediche e Neuromotorie",
+    res_phd_university: "Università di Bologna",
+    res_phd_description: "Focus di ricerca su apprendimento automatico e applicazioni biomediche",
+    res_phd_children_research_position: "Assistente di Ricerca",
+    res_phd_children_research_department: "Laboratorio di Ingegneria Biomedica",
+    res_phd_children_research_description: "Sviluppo di modelli AI per l'analisi di immagini mediche",
+    
+    // MSc
+    res_msc_position: "Laurea Magistrale in AI",
+    res_msc_department: "Dipartimento di Informatica e Ingegneria",
+    res_msc_university: "Università di Bologna",
+    res_msc_description: "110/110 e lode, tesi su apprendimento profondo per visione artificiale",
+    res_msc_children_thesis_position: "Tesista",
+    res_msc_children_thesis_department: "Laboratorio AI e Visione",
+    res_msc_children_thesis_description: "Tesi: 'Tecniche Avanzate di Apprendimento Profondo per Segmentazione di Immagini Mediche'",
+    
+    // BSc
+    res_bsc_position: "Laurea Triennale in Ing. Informatica",
+    res_bsc_department: "Dipartimento di Ingegneria",
+    res_bsc_university: "Università di Palermo",
+    res_bsc_description: "Fondamenti di ingegneria informatica e sviluppo software",
+    res_bsc_children_erasmus_position: "Studente in Scambio Erasmus+",
+    res_bsc_children_erasmus_department: "Dipartimento di Informatica",
+    res_bsc_children_erasmus_university: "Università del Pireo, Grecia",
+    res_bsc_children_erasmus_description: "Studi di informatica e esplorazione della cultura greca da settembre 2019 a febbraio 2020",
+    res_bsc_children_internship_position: "Tirocinante Ingegneria Software",
+    res_bsc_children_internship_department: "Dipartimento IT",
+    res_bsc_children_internship_description: "Sviluppo di applicazioni web per sistema di gestione universitario"
   }
 };
 

@@ -4,6 +4,7 @@
 :root {
   /* Core Colors */
   --md-primary: #D0BCFF;
+  --md-primary-rgb: 208, 188, 255;
   --md-on-primary: #381E72;
   --md-primary-container: #4F378B;
   --md-on-primary-container: #EADDFF;
@@ -308,6 +309,274 @@ h1, h2, h3, h4, p { margin: 0; }
   border: 4px solid var(--md-surface); box-shadow: 0 0 0 2px var(--md-primary);
 }
 .timeline-date { font-size: 0.85rem; font-weight: 800; color: var(--md-primary); text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+
+/* --- RESUME CARDS - MATERIAL DESIGN 3 --- */
+.resume-card {
+  background: var(--md-surface-bright); 
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  transition: all 0.4s var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+.resume-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-color, var(--md-primary));
+  border-radius: 24px 24px 0 0;
+}
+
+.resume-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  border-radius: 28px 32px 24px 28px;
+}
+
+.resume-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resume-card-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+.resume-card-info {
+  flex: 1;
+}
+
+.resume-card-position {
+  color: var(--md-on-surface);
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.resume-card-department {
+  color: var(--md-primary);
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.resume-card-university {
+  color: var(--md-on-surface-variant);
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.resume-card-description {
+  color: var(--md-on-surface-variant);
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 1rem;
+  background: rgba(var(--md-primary-rgb, 208, 188, 255), 0.1);
+  border-radius: 16px;
+  border-left: 4px solid var(--md-primary);
+}
+
+/* --- NESTED CHILDREN CARDS --- */
+.resume-card-children {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--md-outline-variant);
+}
+
+.resume-card-toggle {
+  background: var(--md-surface);
+  border: 2px solid var(--md-outline-variant);
+  border-radius: 24px;
+  padding: 0.75rem 1.5rem;
+  color: var(--md-on-surface);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-spring);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+}
+
+.resume-card-toggle:hover {
+  background: var(--md-primary-container);
+  border-color: var(--md-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(208, 188, 255, 0.2);
+}
+
+.toggle-icon {
+  transition: transform 0.3s var(--ease-spring);
+  font-size: 0.8rem;
+}
+
+.resume-children-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-spring);
+  margin-top: 1rem;
+}
+
+.resume-children-container.expanded {
+  grid-template-rows: 1fr;
+}
+
+.resume-children-container > * {
+  min-height: 0;
+}
+
+.resume-child-card {
+  background: var(--md-surface);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin: 0.75rem 0;
+  border: 1px solid var(--md-outline-variant);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-child-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--card-color, var(--md-primary));
+  border-radius: 20px 0 0 20px;
+}
+
+.resume-child-card:hover {
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.resume-child-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.resume-child-card-date {
+  color: var(--md-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: rgba(var(--md-primary-rgb, 208, 188, 255), 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.resume-child-card-position {
+  color: var(--md-on-surface);
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.resume-child-card-department {
+  color: var(--md-secondary);
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding-left: 1rem;
+}
+
+.resume-child-card-university {
+  color: var(--md-on-surface-variant);
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  padding-left: 1rem;
+}
+
+.resume-child-card-description {
+  color: var(--md-on-surface-variant);
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding-left: 1rem;
+  border-left: 2px solid var(--md-outline-variant);
+}
+
+/* --- ANIMATIONS --- */
+.resume-card {
+  opacity: 0;
+  transform: translateY(40px) rotate(-2deg);
+  animation: slide-in-fun 0.8s var(--ease-spring) forwards;
+  animation-delay: calc(var(--delay, 0) * 120ms);
+}
+
+@keyframes slide-in-fun {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) rotate(-2deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  50% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    border-radius: 24px;
+  }
+}
+
+.resume-child-card {
+  opacity: 0;
+  transform: translateX(-20px) scale(0.95);
+  animation: child-slide-in 0.6s var(--ease-spring) forwards;
+  animation-delay: calc(var(--child-delay, 0) * 100ms);
+}
+
+@keyframes child-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Organic shape variations */
+.resume-card:nth-child(2n) {
+  border-radius: 32px 24px 28px 20px;
+}
+
+.resume-card:nth-child(3n) {
+  border-radius: 20px 28px 24px 32px;
+}
+
+.resume-card:nth-child(4n) {
+  border-radius: 28px 20px 32px 24px;
+}
+
+/* --- LEGACY TIMELINE CARD SUPPORT --- */
 .timeline-card {
   background: var(--md-surface-bright); padding: 1.5rem;
   border-radius: 0 20px 20px 20px;

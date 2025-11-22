@@ -1,4 +1,4 @@
-/ Science cards data
+// Science cards data
 const scienceCards = [
   {
     id: "sfn_2025",

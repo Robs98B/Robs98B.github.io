@@ -33,35 +33,43 @@
       </section>
 
       <section class="filters-container">
+        
         <div class="filter-group">
            <div class="filter-label" data-i18n="filter_cat">Category</div>
-           <div class="chip-row">
-             <label class="chip">
+           <div class="pill-list">
+             <label class="filter-pill category">
                <input type="checkbox" name="category" value="publication" checked>
-               <div class="check-icon">✓</div>
-               <span data-i18n="lbl_pub">Publications</span>
+               <span class="pill-content" data-i18n="lbl_pub">Publications</span>
              </label>
-             <label class="chip">
+             <label class="filter-pill category">
                <input type="checkbox" name="category" value="abstract" checked>
-               <div class="check-icon">✓</div>
-               <span data-i18n="lbl_abs">Abstracts</span>
+               <span class="pill-content" data-i18n="lbl_abs">Abstracts</span>
              </label>
-             <label class="chip">
+             <label class="filter-pill category">
                <input type="checkbox" name="category" value="poster" checked>
-               <div class="check-icon">✓</div>
-               <span data-i18n="lbl_pos">Posters</span>
+               <span class="pill-content" data-i18n="lbl_pos">Posters</span>
              </label>
            </div>
         </div>
         
-        <div class="filter-group" style="margin-left:auto;">
+        <div class="filter-group">
            <div class="filter-label" data-i18n="filter_year">Year</div>
-           <select id="year-select">
-              <option value="all" data-i18n="filter_all">All</option>
-              <option value="2025">2025</option>
-              <option value="2024">2024</option>
-           </select>
+           <div class="pill-list">
+              <label class="filter-pill">
+                <input type="radio" name="year" value="all" checked>
+                <span class="pill-content" data-i18n="filter_all">All</span>
+              </label>
+              <label class="filter-pill">
+                <input type="radio" name="year" value="2025">
+                <span class="pill-content">2025</span>
+              </label>
+              <label class="filter-pill">
+                <input type="radio" name="year" value="2024">
+                <span class="pill-content">2024</span>
+              </label>
+           </div>
         </div>
+
       </section>
 
       <div id="items" class="cards-grid">

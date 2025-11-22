@@ -3,18 +3,23 @@
   const itemsContainer = document.getElementById('items');
   if (!itemsContainer) return;
   
-  // Use array from to avoid nodelist issues
   const items = Array.from(itemsContainer.querySelectorAll('.item'));
-
-  const yearSelect = document.getElementById('year-select');
-  // Select all inputs with name="category" inside the filters container
-  const categoryInputs = Array.from(document.querySelectorAll('input[name="category"]'));
   const noResults = document.getElementById('no-results');
 
+  // New Selector Logic: Find all inputs with name='year' (Radios)
+  const yearInputs = Array.from(document.querySelectorAll('input[name="year"]'));
+  
+  // Find all inputs with name='category' (Checkboxes)
+  const categoryInputs = Array.from(document.querySelectorAll('input[name="category"]'));
+
   function applyFilters() {
-    const selectedYear = yearSelect ? yearSelect.value : 'all';
+    // 1. Get Selected Year
+    // Find the checked radio. If none (shouldn't happen), default to 'all'.
+    const checkedYearInput = yearInputs.find(input => input.checked);
+    const selectedYear = checkedYearInput ? checkedYearInput.value : 'all';
     
-    // Create a Set of checked categories
+    // 2. Get Selected Categories
+    // Create Set of values from checked inputs
     const selectedCategories = categoryInputs.length
       ? new Set(categoryInputs.filter(i => i.checked).map(i => i.value))
       : null; 
@@ -25,13 +30,16 @@
       const itemYear = el.getAttribute('data-year');
       const itemCat = el.getAttribute('data-category');
 
+      // Logic: Show if (Filter is All OR Item matches Year) AND (Category matches OR No Category Filter exists)
       const yearOk = selectedYear === 'all' || selectedYear === itemYear;
-      // If no categories exist on page (like activities page), catOk is always true
       const catOk = !selectedCategories || (itemCat && selectedCategories.has(itemCat));
 
       if (yearOk && catOk) {
         el.style.display = '';
-        // Add a slight animation replay for filtered items could be done here
+        // Optional: Reset animation to make it pop again
+        el.style.animation = 'none';
+        el.offsetHeight; /* trigger reflow */
+        el.style.animation = 'fade-in-up 0.4s ease forwards';
         visibleCount++;
       } else {
         el.style.display = 'none';
@@ -40,11 +48,12 @@
 
     if (noResults) {
         noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-        noResults.hidden = visibleCount !== 0; // Accessibility
+        noResults.hidden = visibleCount !== 0; 
     }
   }
 
-  if (yearSelect) yearSelect.addEventListener('change', applyFilters);
+  // Attach Listeners
+  yearInputs.forEach(input => input.addEventListener('change', applyFilters));
   categoryInputs.forEach(input => input.addEventListener('change', applyFilters));
 
   // Run on load

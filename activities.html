@@ -35,15 +35,33 @@
 
       <section class="filters-container" aria-label="Filters">
         <div class="filter-group">
-          <label for="year-select" class="filter-label" data-i18n="filter_year">Year</label>
-          <select id="year-select">
-            <option value="all" selected data-i18n="filter_all">All</option>
-            <option value="2025">2025</option>
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-          </select>
+          <label class="filter-label" data-i18n="filter_year">Year</label>
+          <div class="pill-list">
+             <label class="filter-pill">
+                <input type="radio" name="year" value="all" checked>
+                <span class="pill-content" data-i18n="filter_all">All</span>
+             </label>
+             <label class="filter-pill">
+                <input type="radio" name="year" value="2025">
+                <span class="pill-content">2025</span>
+             </label>
+             <label class="filter-pill">
+                <input type="radio" name="year" value="2024">
+                <span class="pill-content">2024</span>
+             </label>
+             <label class="filter-pill">
+                <input type="radio" name="year" value="2023">
+                <span class="pill-content">2023</span>
+             </label>
+             <label class="filter-pill">
+                <input type="radio" name="year" value="2022">
+                <span class="pill-content">2022</span>
+             </label>
+             <label class="filter-pill">
+                <input type="radio" name="year" value="2021">
+                <span class="pill-content">2021</span>
+             </label>
+          </div>
         </div>
       </section>
 

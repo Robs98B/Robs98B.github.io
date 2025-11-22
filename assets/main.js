@@ -147,8 +147,8 @@ const translations = {
     // Activities
     act_title: "Attività Accademiche",
     act_2024_place: "Dipartimento di Informatica, Università di Bologna",
-    act_2024_title: "Tutor didattico per la laurea triennale in Informatica.",
-    act_2024_desc: "Supporto per il corso di Algoritmi e Strutture Dati.",
+    act_2024_title: "Tutor didattico per la laurea triennale in Informatica",
+    act_2024_desc: "Supporto per il corso di Algoritmi e Strutture Dati",
     act_2023_place: "CESIA, Università di Bologna",
     act_2023_title: "Supporto nelle procedure di ammissione ai Corsi di studio",
     act_2022_place: "Dipartimento di Informatica, Università di Bologna",

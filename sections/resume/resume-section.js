@@ -25,8 +25,8 @@ class ResumeSection {
     if (!this.container) return;
 
     this.container.innerHTML = '';
-    
-    this.cards.forEach((card, index) => {
+    const sorted = this.getSortedCards();
+    sorted.forEach((card, index) => {
       const timelineItem = this.createTimelineItem(card, index);
       this.container.appendChild(timelineItem);
     });
@@ -40,33 +40,27 @@ class ResumeSection {
     item.className = 'timeline-item';
     item.style.setProperty('--delay', index + 1);
     
-    const yearRange = card.yearEnd === 'Present' ? 
-      `${card.yearStart} — ${this.currentLang === 'it' ? 'Presente' : 'Present'}` : 
-      `${card.yearStart} — ${card.yearEnd}`;
+    const yearRange = this.formatRange(card);
 
     item.innerHTML = `
       <div class="timeline-dot"></div>
-      <span class="timeline-date" data-i18n="res_${card.id}_date">${yearRange}</span>
+      <span class="timeline-date">${yearRange}</span>
       <div class="timeline-card resume-card" style="--card-color: ${card.color}">
+        <div class="card-blob blob-a"></div>
+        <div class="card-blob blob-b"></div>
         <div class="resume-card-header">
           <div class="resume-card-icon">${card.icon}</div>
           <div class="resume-card-info">
+            <div class="resume-card-meta"><span class="year-chip">${yearRange}</span></div>
             <h3 class="resume-card-position" data-i18n="res_${card.id}_position">${card.position}</h3>
-            <p class="resume-card-department" data-i18n="res_${card.id}_department">${card.department}</p>
-            <p class="resume-card-university" data-i18n="res_${card.id}_university">${card.university}</p>
+            ${card.university ? `<p class="resume-card-university" data-i18n="res_${card.id}_university">${card.university}</p>` : ''}
+            ${card.department ? `<p class="resume-card-department" data-i18n="res_${card.id}_department">${card.department}</p>` : ''}
           </div>
         </div>
         ${card.description ? `<p class="resume-card-description" data-i18n="res_${card.id}_description">${card.description}</p>` : ''}
-        
         ${card.children && card.children.length > 0 ? `
           <div class="resume-card-children">
-            <button class="resume-card-toggle" onclick="toggleChildren('${card.id}')">
-              <span data-i18n="res_view_details">View Details</span>
-              <span class="toggle-icon">▼</span>
-            </button>
-            <div class="resume-children-container" id="children-${card.id}">
-              ${card.children.map(child => this.createChildCard(child, card.id)).join('')}
-            </div>
+            ${card.children.map(child => this.createChildCard(child, card.id)).join('')}
           </div>
         ` : ''}
       </div>
@@ -76,19 +70,19 @@ class ResumeSection {
   }
 
   createChildCard(child, parentId) {
-    const yearRange = child.yearEnd === 'Present' ? 
-      `${child.yearStart} — ${this.currentLang === 'it' ? 'Presente' : 'Present'}` : 
-      `${child.yearStart} — ${child.yearEnd}`;
-
+    const yearRange = this.formatRange(child);
+    const desc = child.description ? `<p class="resume-child-card-description" data-i18n="res_${parentId}_children_${child.id}_description">${child.description}</p>` : '';
+    const link = child.link ? `<p class="resume-child-card-description"><a href="${child.link}">Projects</a></p>` : '';
     return `
       <div class="resume-child-card">
         <div class="resume-child-card-header">
-          <span class="resume-child-card-date">${yearRange}</span>
+          ${yearRange ? `<span class="resume-child-card-date">${yearRange}</span>` : ''}
           <h4 class="resume-child-card-position" data-i18n="res_${parentId}_children_${child.id}_position">${child.position}</h4>
         </div>
-        <p class="resume-child-card-department" data-i18n="res_${parentId}_children_${child.id}_department">${child.department}</p>
-        <p class="resume-child-card-university" data-i18n="res_${parentId}_children_${child.id}_university">${child.university}</p>
-        ${child.description ? `<p class="resume-child-card-description" data-i18n="res_${parentId}_children_${child.id}_description">${child.description}</p>` : ''}
+        ${child.department ? `<p class="resume-child-card-department" data-i18n="res_${parentId}_children_${child.id}_department">${child.department}</p>` : ''}
+        ${child.university ? `<p class="resume-child-card-university" data-i18n="res_${parentId}_children_${child.id}_university">${child.university}</p>` : ''}
+        ${desc}
+        ${link}
       </div>
     `;
   }
@@ -105,24 +99,35 @@ class ResumeSection {
 
     cards.forEach(card => observer.observe(card));
   }
-}
 
-// Global function to toggle children visibility
-function toggleChildren(cardId) {
-  const container = document.getElementById(`children-${cardId}`);
-  const toggle = container.previousElementSibling;
-  const icon = toggle.querySelector('.toggle-icon');
-  
-  if (container.classList.contains('expanded')) {
-    container.classList.remove('expanded');
-    icon.textContent = '▼';
-    toggle.querySelector('span').textContent = window.currentLang === 'it' ? 'Vedi Dettagli' : 'View Details';
-  } else {
-    container.classList.add('expanded');
-    icon.textContent = '▲';
-    toggle.querySelector('span').textContent = window.currentLang === 'it' ? 'Nascondi Dettagli' : 'Hide Details';
+  getSortedCards() {
+    const monthMap = { Jan:1, Feb:2, Mar:3, Apr:4, May:5, Jun:6, Jul:7, Aug:8, Sep:9, Oct:10, Nov:11, Dec:12 };
+    const parse = (obj) => {
+      const y = obj.yearStart ? parseInt(obj.yearStart, 10) : 0;
+      const m = obj.monthStart ? (monthMap[obj.monthStart] || 0) : 0;
+      return y * 100 + m;
+    };
+    return this.cards.slice().sort((a, b) => parse(b) - parse(a));
+  }
+
+  formatRange(obj) {
+    const lang = this.currentLang;
+    const monthsEN = {Jan:'Jan',Feb:'Feb',Mar:'Mar',Apr:'Apr',May:'May',Jun:'Jun',Jul:'Jul',Aug:'Aug',Sep:'Sep',Oct:'Oct',Nov:'Nov',Dec:'Dec'};
+    const monthsIT = {Jan:'Gen',Feb:'Feb',Mar:'Mar',Apr:'Apr',May:'Mag',Jun:'Giu',Jul:'Lug',Aug:'Ago',Sep:'Set',Oct:'Ott',Nov:'Nov',Dec:'Dic'};
+    const mset = lang === 'it' ? monthsIT : monthsEN;
+    const startM = obj.monthStart ? (mset[obj.monthStart] || obj.monthStart) : null;
+    const endM = obj.monthEnd ? (mset[obj.monthEnd] || obj.monthEnd) : null;
+    const startY = obj.yearStart || '';
+    const endY = obj.yearEnd || '';
+    const presentText = lang === 'it' ? 'Presente' : 'Present';
+    if (!startY && !endY) return '';
+    const endText = endY === 'Present' ? presentText : (endM ? `${endM} ${endY}` : endY);
+    const startText = startM ? `${startM} ${startY}` : startY;
+    return `${startText} — ${endText}`;
   }
 }
+
+ 
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

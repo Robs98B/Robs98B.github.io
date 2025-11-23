@@ -46,8 +46,6 @@ class ResumeSection {
       <div class="timeline-dot"></div>
       <span class="timeline-date">${yearRange}</span>
       <div class="timeline-card resume-card" style="--card-color: ${card.color}">
-        <div class="card-blob blob-a"></div>
-        <div class="card-blob blob-b"></div>
         <div class="resume-card-header">
           <div class="resume-card-icon">${card.icon}</div>
           <div class="resume-card-info">
@@ -70,8 +68,8 @@ class ResumeSection {
 
   createChildCard(child, parentId) {
     const yearRange = this.formatRange(child);
-    const desc = child.description ? `<p class="resume-child-card-description" data-i18n="res_${parentId}_children_${child.id}_description">${child.description}</p>` : '';
-    const link = child.link ? `<p class="resume-child-card-description"><a href="${child.link}">Projects</a></p>` : '';
+    const desc = child.link ? '' : (child.description ? `<p class="resume-child-card-description" data-i18n="res_${parentId}_children_${child.id}_description">${child.description}</p>` : '');
+    const link = child.link ? `<a class="child-project-link" href="${child.link}">Project details →</a>` : '';
     return `
       <div class="resume-child-card">
         <div class="resume-child-card-header">

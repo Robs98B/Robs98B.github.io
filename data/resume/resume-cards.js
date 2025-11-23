@@ -38,7 +38,7 @@ const resumeCards = [
         position: "Erasmus+ Traineeship",
         department: "TECNALIA Research & Innovation",
         university: "San Sebastián, Spain",
-        description: "See project in the Projects section",
+        description: "",
         link: "projects.html"
       },
       {

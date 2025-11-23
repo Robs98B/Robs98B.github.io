@@ -62,7 +62,7 @@ class ProjectsSection {
       <div class="card-type">${card.type}</div>
       <div class="card-context">${card.context}</div>
       <h3 class="card-title" data-i18n="${card.title_key}"></h3>
-      <p data-i18n="${card.desc_key}"></p>
+      <p class="card-desc" data-i18n="${card.desc_key}"></p>
       <div class="divider"></div>
       <div class="chip-list">
         ${chipsHtml}

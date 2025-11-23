@@ -256,6 +256,10 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if (systemDark) {
     root.setAttribute('data-theme', 'dark');
   }
+  const initialTheme = root.getAttribute('data-theme') || (systemDark ? 'dark' : 'light');
+  if (!root.getAttribute('data-theme')) {
+    root.setAttribute('data-theme', initialTheme);
+  }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
@@ -266,7 +270,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const isDark = next === 'dark';
       themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
       themeToggle.textContent = isDark ? '☾' : '☀';
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
     });
+    const isDarkInit = (root.getAttribute('data-theme') || 'light') === 'dark';
+    themeToggle.setAttribute('aria-pressed', isDarkInit ? 'true' : 'false');
+    themeToggle.textContent = isDarkInit ? '☾' : '☀';
+    themeToggle.setAttribute('aria-label', isDarkInit ? 'Switch to light theme' : 'Switch to dark theme');
     
     // Remove hover animation after 1 second
     themeToggle.addEventListener('mouseenter', () => {
@@ -306,7 +315,9 @@ document.addEventListener('DOMContentLoaded', () => {
     langToggle.addEventListener('click', () => {
       const next = currentLang === 'en' ? 'it' : 'en';
       window.applyLanguage(next);
+      langToggle.setAttribute('aria-label', next === 'en' ? 'Switch language' : 'Cambia lingua');
     });
+    langToggle.setAttribute('aria-label', currentLang === 'en' ? 'Switch language' : 'Cambia lingua');
     
     // Remove hover animation after 1 second
     langToggle.addEventListener('mouseenter', () => {
@@ -324,15 +335,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 3. MOBILE NAV LOGIC ---
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navList = document.querySelector('.nav-list');
+  const siteHeader = document.querySelector('.site-header');
+  function applyNavMode() {
+    if (!siteHeader) return;
+    const mobile = window.innerWidth <= 850;
+    const has = siteHeader.classList.contains('nav-mobile');
+    if (mobile && !has) {
+      siteHeader.classList.add('nav-mobile');
+      siteHeader.classList.add('nav-enter');
+      setTimeout(() => { siteHeader.classList.remove('nav-enter'); }, 600);
+    }
+    if (!mobile && has) {
+      siteHeader.classList.remove('nav-mobile');
+      siteHeader.classList.remove('nav-enter');
+    }
+  }
+  applyNavMode();
   if (mobileToggle && navList) {
     mobileToggle.addEventListener('click', () => {
       const isOpen = navList.classList.contains('open');
       if(isOpen) {
         navList.classList.remove('open');
         mobileToggle.textContent = '☰';
+        mobileToggle.setAttribute('aria-expanded', 'false');
       } else {
         navList.classList.add('open');
         mobileToggle.textContent = '✕';
+        mobileToggle.setAttribute('aria-expanded', 'true');
       }
     });
     
@@ -343,6 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
           !mobileToggle.contains(e.target)) {
         navList.classList.remove('open');
         mobileToggle.textContent = '☰';
+        mobileToggle.setAttribute('aria-expanded', 'false');
       }
     });
     
@@ -359,7 +389,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.innerWidth > 850 && navList.classList.contains('open')) {
         navList.classList.remove('open');
         mobileToggle.textContent = '☰';
+        mobileToggle.setAttribute('aria-expanded', 'false');
       }
+      applyNavMode();
     });
   }
 

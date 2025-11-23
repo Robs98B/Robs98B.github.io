@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Science Test</title>
+</head>
+<body>
+    <h1>Simple Science Test</h1>
+    <div id="items"></div>
+    
+    <script>
+        // Simple test data
+        const scienceCards = [
+            {
+                id: "test_2025",
+                category: "abstract", 
+                year: "2025",
+                venue_key: "Test Venue",
+                title_key: "Test Title",
+                authors_key: "Test Authors"
+            }
+        ];
+        
+        // Simple ScienceSection
+        class ScienceSection {
+            constructor() {
+                console.log('Simple ScienceSection constructor called');
+                this.container = document.getElementById('items');
+                this.cards = scienceCards;
+                this.init();
+            }
+            
+            init() {
+                console.log('Simple ScienceSection init called');
+                this.renderCards();
+            }
+            
+            renderCards() {
+                if (!this.container) {
+                    console.log('No container found');
+                    return;
+                }
+                
+                console.log('Rendering cards, count:', this.cards.length);
+                this.container.innerHTML = '';
+                
+                this.cards.forEach((card, index) => {
+                    const cardElement = this.createCardElement(card, index);
+                    this.container.appendChild(cardElement);
+                });
+            }
+            
+            createCardElement(card, index) {
+                const article = document.createElement('article');
+                article.className = 'card item';
+                article.setAttribute('data-category', card.category);
+                article.setAttribute('data-year', card.year);
+                article.innerHTML = `
+                    <div class="card-category">${card.category}</div>
+                    <div class="card-year">${card.year}</div>
+                    <h3>${card.title_key}</h3>
+                `;
+                return article;
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded fired');
+            new ScienceSection();
+        });
+    </script>
+    
+    <!-- Load filters after -->
+    <script src="assets/filters.js"></script>
+</body>
+</html>

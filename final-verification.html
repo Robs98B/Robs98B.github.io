@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Final Verification Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        .status { padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .info { background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; }
+        .card { border: 1px solid #ccc; padding: 1rem; margin: 0.5rem 0; border-radius: 4px; background: white; }
+        .filter-pill { display: inline-block; margin: 0.25rem; padding: 0.5rem 1rem; background: #e9ecef; border-radius: 20px; cursor: pointer; }
+        .filter-pill input { margin-right: 0.5rem; }
+        .filters-container { margin: 2rem 0; }
+    </style>
+</head>
+<body>
+    <h1>Final Verification Test</h1>
+    
+    <div id="status-output"></div>
+
+    <!-- Replicate the filter structure from science.html -->
+    <section class="filters-container">
+        <div class="filter-group">
+           <div class="filter-label">Category</div>
+           <div class="pill-list">
+             <label class="filter-pill category">
+               <input type="checkbox" name="category" value="publication" checked>
+               <span class="pill-content">Publications</span>
+             </label>
+             <label class="filter-pill category">
+               <input type="checkbox" name="category" value="abstract" checked>
+               <span class="pill-content">Abstracts</span>
+             </label>
+             <label class="filter-pill category">
+               <input type="checkbox" name="category" value="poster" checked>
+               <span class="pill-content">Posters</span>
+             </label>
+           </div>
+        </div>
+        <div class="filter-group">
+           <div class="filter-label">Year</div>
+           <div class="pill-list">
+              <label class="filter-pill">
+                <input type="radio" name="year" value="all" checked>
+                <span class="pill-content">All</span>
+              </label>
+           </div>
+        </div>
+    </section>
+
+    <div id="items" class="cards-grid">
+        <!-- Cards will be dynamically generated -->
+    </div>
+
+    <div id="no-results" style="display:none;">No results found.</div>
+
+    <!-- Load scripts in the exact same order as science.html -->
+    <script src="data/science/science-cards.js"></script>
+    <script src="sections/science/science-section.js"></script>
+    <script src="assets/filters.js"></script>
+
+    <script>
+        function addStatus(message, type = 'info') {
+            const statusOutput = document.getElementById('status-output');
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.innerHTML = `<strong>[${new Date().toLocaleTimeString()}]</strong> ${message}`;
+            statusOutput.appendChild(div);
+        }
+
+        function runVerification() {
+            addStatus('Starting verification test...', 'info');
+            
+            // Check 1: scienceCards data
+            if (typeof scienceCards !== 'undefined' && scienceCards && scienceCards.length > 0) {
+                addStatus(`✓ scienceCards loaded successfully with ${scienceCards.length} items`, 'success');
+            } else {
+                addStatus('✗ scienceCards not loaded or empty', 'error');
+                return;
+            }
+            
+            // Check 2: items container
+            const itemsContainer = document.getElementById('items');
+            if (itemsContainer) {
+                addStatus('✓ items container found', 'success');
+            } else {
+                addStatus('✗ items container not found', 'error');
+                return;
+            }
+            
+            // Check 3: ScienceSection class
+            if (typeof ScienceSection !== 'undefined') {
+                addStatus('✓ ScienceSection class defined', 'success');
+            } else {
+                addStatus('✗ ScienceSection class not defined', 'error');
+                return;
+            }
+            
+            // Check 4: Wait for cards to be rendered
+            setTimeout(() => {
+                const renderedCards = itemsContainer.querySelectorAll('.card');
+                if (renderedCards.length > 0) {
+                    addStatus(`✓ Cards rendered successfully: ${renderedCards.length} cards`, 'success');
+                    
+                    // Check 5: Filter functionality
+                    const yearFilters = document.querySelectorAll('input[name="year"]');
+                    const categoryFilters = document.querySelectorAll('input[name="category"]');
+                    
+                    if (yearFilters.length > 0 || categoryFilters.length > 0) {
+                        addStatus('✓ Filter controls found and should be functional', 'success');
+                    } else {
+                        addStatus('⚠ Filter controls not found - filters may not work', 'error');
+                    }
+                    
+                    // Check 6: Card attributes for filtering
+                    const firstCard = renderedCards[0];
+                    if (firstCard.hasAttribute('data-category') && firstCard.hasAttribute('data-year')) {
+                        addStatus('✓ Cards have proper data attributes for filtering', 'success');
+                    } else {
+                        addStatus('✗ Cards missing data attributes for filtering', 'error');
+                    }
+                    
+                    addStatus('Verification complete! Check the cards below:', 'info');
+                } else {
+                    addStatus('✗ No cards rendered after timeout', 'error');
+                }
+            }, 2000);
+        }
+
+        // Listen for the scienceCardsRendered event
+        document.addEventListener('scienceCardsRendered', (event) => {
+            addStatus(`✓ scienceCardsRendered event received with ${event.detail.cardCount} cards`, 'success');
+        });
+
+        // Override console.log to capture logs
+        const originalConsoleLog = console.log;
+        console.log = function(...args) {
+            originalConsoleLog.apply(console, args);
+            const message = args.join(' ');
+            if (message.includes('initScienceSection') || 
+                message.includes('ScienceSection') || 
+                message.includes('scienceCardsRendered') ||
+                message.includes('computeSets')) {
+                addStatus(`Console: ${message}`, 'info');
+            }
+        };
+
+        // Start verification after a short delay
+        setTimeout(runVerification, 1000);
+    </script>
+</body>
+</html>

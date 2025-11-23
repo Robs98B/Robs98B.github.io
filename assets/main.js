@@ -263,6 +263,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const next = current === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
+      const isDark = next === 'dark';
+      themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+      themeToggle.textContent = isDark ? '☾' : '☀';
     });
     
     // Remove hover animation after 1 second

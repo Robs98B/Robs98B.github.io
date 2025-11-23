@@ -35,6 +35,8 @@ class ActivitiesSection {
     article.style.setProperty('--delay', index + 1);
 
     article.innerHTML = `
+      <div class="card-blob blob-b"></div>
+      <div class="card-blob blob-c"></div>
       <div class="card-role">${card.role}</div>
       <div class="card-context" data-i18n="${card.context_key}"></div>
       <h3 class="card-title" data-i18n="${card.title_key}"></h3>

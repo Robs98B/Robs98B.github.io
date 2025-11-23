@@ -51,7 +51,6 @@ class ResumeSection {
         <div class="resume-card-header">
           <div class="resume-card-icon">${card.icon}</div>
           <div class="resume-card-info">
-            <div class="resume-card-meta"><span class="year-chip">${yearRange}</span></div>
             <h3 class="resume-card-position" data-i18n="res_${card.id}_position">${card.position}</h3>
             ${card.university ? `<p class="resume-card-university" data-i18n="res_${card.id}_university">${card.university}</p>` : ''}
             ${card.department ? `<p class="resume-card-department" data-i18n="res_${card.id}_department">${card.department}</p>` : ''}

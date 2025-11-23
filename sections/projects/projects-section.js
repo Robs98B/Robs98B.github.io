@@ -57,6 +57,8 @@ class ProjectsSection {
       `<div class="code-note" data-i18n="${card.code_note_key}"></div>`;
 
     article.innerHTML = `
+      <div class="card-blob blob-a"></div>
+      <div class="card-blob blob-c"></div>
       <div class="card-type">${card.type}</div>
       <div class="card-context">${card.context}</div>
       <h3 class="card-title" data-i18n="${card.title_key}"></h3>

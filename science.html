@@ -72,12 +72,6 @@
       <div id="items" class="cards-grid">
         <!-- Cards will be dynamically generated -->
       </div>
-      <div id="debug-status" style="padding: 1rem; background: #f0f0f0; margin: 1rem 0;">
-        <p><strong>Debug Status:</strong></p>
-        <p id="debug-scienceCards">scienceCards: checking...</p>
-        <p id="debug-items">items element: checking...</p>
-        <p id="debug-section">ScienceSection: checking...</p>
-      </div>
       <p id="no-results" class="muted" style="text-align:center; display:none;" data-i18n="no_results">No results found.</p>
     </main>
 
@@ -88,29 +82,6 @@
     <script src="data/science/science-cards.js"></script>
     <script src="sections/science/science-section.js"></script>
     <script src="assets/filters.js"></script>
-    <script>
-        // Update debug status
-        function updateDebugStatus() {
-            const debugScienceCards = document.getElementById('debug-scienceCards');
-            const debugItems = document.getElementById('debug-items');
-            const debugSection = document.getElementById('debug-section');
-            
-            if (debugScienceCards) {
-                debugScienceCards.textContent = 'scienceCards: ' + (typeof scienceCards !== 'undefined' ? 'LOADED' : 'NOT LOADED');
-            }
-            if (debugItems) {
-                debugItems.textContent = 'items element: ' + (document.getElementById('items') !== null ? 'FOUND' : 'NOT FOUND');
-            }
-            if (debugSection) {
-                debugSection.textContent = 'ScienceSection: ' + (typeof ScienceSection !== 'undefined' ? 'DEFINED' : 'NOT DEFINED');
-            }
-        }
-        
-        // Update status after a short delay
-        setTimeout(updateDebugStatus, 1000);
-        setTimeout(updateDebugStatus, 2000);
-        setTimeout(updateDebugStatus, 3000);
-    </script>
     <a href="index.html" class="home-fab" aria-label="Home">⌂</a>
   </body>
 </html>

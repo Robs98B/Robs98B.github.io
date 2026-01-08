@@ -1,79 +1,89 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Activities — Roberto Bonini</title>
-    <link rel="stylesheet" href="assets/styles.css" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  </head>
-  <body class="section-activities">
-    
-    <header class="site-header">
-      <nav class="site-nav">
-        <button class="mobile-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="primary-nav">☰</button>
-        <div class="nav-list" id="primary-nav">
-          <a class="nav-link" href="index.html" data-i18n="nav_home">Home</a>
-          <a class="nav-link" href="resume.html" data-i18n="nav_resume">Resume</a>
-          <a class="nav-link" href="science.html" data-i18n="nav_science">Science</a>
-          <a class="nav-link" href="projects.html" data-i18n="nav_projects">Projects</a>
-          <a class="nav-link" href="activities.html" aria-current="page" data-i18n="nav_activities">Activities</a>
-          <a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a>
-        </div>
-        <div class="actions">
-          <button id="lang-toggle" class="icon-btn lang-btn" aria-label="Switch language">🇮🇹 IT</button>
-          <button id="theme-toggle" class="icon-btn" aria-label="Switch theme">◑</button>
-        </div>
-      </nav>
-    </header>
 
-    <main class="container">
-      <section class="hero" style="padding-bottom:2rem;">
-        <h1 data-i18n="act_title">Academic Activities</h1>
-      </section>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Activities — Roberto Bonini</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
 
-      <section class="filters-container" aria-label="Filters">
-        <div class="filter-group">
-          <label class="filter-label" data-i18n="filter_year">Year</label>
-          <div class="pill-list">
-             <label class="filter-pill">
-                <input type="radio" name="year" value="all" checked>
-                <span class="pill-content" data-i18n="filter_all">All</span>
-             </label>
-             <label class="filter-pill">
-                <input type="radio" name="year" value="2024">
-                <span class="pill-content">2024</span>
-             </label>
-             <label class="filter-pill">
-                <input type="radio" name="year" value="2023">
-                <span class="pill-content">2023</span>
-             </label>
-             <label class="filter-pill">
-                <input type="radio" name="year" value="2022">
-                <span class="pill-content">2022</span>
-             </label>
-             <label class="filter-pill">
-                <input type="radio" name="year" value="2021">
-                <span class="pill-content">2021</span>
-             </label>
-          </div>
+<body class="section-activities">
+
+  <header class="site-header">
+    <nav class="site-nav">
+      <button class="mobile-toggle" aria-label="Toggle Navigation" aria-expanded="false"
+        aria-controls="primary-nav">☰</button>
+      <div class="nav-list" id="primary-nav">
+        <a class="nav-link" href="index.html" data-i18n="nav_home">Home</a>
+        <a class="nav-link" href="resume.html" data-i18n="nav_resume">Resume</a>
+        <a class="nav-link" href="science.html" data-i18n="nav_science">Science</a>
+        <a class="nav-link" href="projects.html" data-i18n="nav_projects">Projects</a>
+        <a class="nav-link" href="activities.html" aria-current="page" data-i18n="nav_activities">Activities</a>
+        <a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="actions">
+        <button id="lang-toggle" class="icon-btn lang-btn" aria-label="Switch language">🇮🇹 IT</button>
+        <button id="theme-toggle" class="icon-btn" aria-label="Switch theme">◑</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="padding-bottom:2rem;">
+      <h1 data-i18n="act_title">Academic Activities</h1>
+    </section>
+
+    <section class="filters-container" aria-label="Filters">
+      <div class="filter-group">
+        <label class="filter-label" data-i18n="filter_year">Year</label>
+        <div class="pill-list">
+          <label class="filter-pill">
+            <input type="radio" name="year" value="all" checked>
+            <span class="pill-content" data-i18n="filter_all">All</span>
+          </label>
+          <label class="filter-pill">
+            <input type="radio" name="year" value="2025">
+            <span class="pill-content">2025</span>
+          </label>
+          <label class="filter-pill">
+            <input type="radio" name="year" value="2024">
+            <span class="pill-content">2024</span>
+          </label>
+          <label class="filter-pill">
+            <input type="radio" name="year" value="2023">
+            <span class="pill-content">2023</span>
+          </label>
+          <label class="filter-pill">
+            <input type="radio" name="year" value="2022">
+            <span class="pill-content">2022</span>
+          </label>
+          <label class="filter-pill">
+            <input type="radio" name="year" value="2021">
+            <span class="pill-content">2021</span>
+          </label>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="items" class="cards-grid">
-        <!-- Cards will be dynamically generated -->
-      </section>
-      <p id="no-results" class="muted" style="display:none; text-align:center;" data-i18n="no_results">No results.</p>
-    </main>
-    <footer style="text-align:center; padding:3rem; opacity:0.6; font-size: 0.9rem;">
-      © <span id="year"></span> <span data-i18n="footer_cr">Roberto Bonini</span>
-    </footer>
-    <script src="assets/main.js"></script>
-    <script src="assets/filters.js"></script>
-    <script src="data/activities/activity-cards.js"></script>
-    <script src="sections/activities/activities-section.js"></script>
-    <a href="index.html" class="home-fab" aria-label="Home">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
-    </a>
-  </body>
+    <section id="items" class="cards-grid">
+      <!-- Cards will be dynamically generated -->
+    </section>
+    <p id="no-results" class="muted" style="display:none; text-align:center;" data-i18n="no_results">No results.</p>
+  </main>
+  <footer style="text-align:center; padding:3rem; opacity:0.6; font-size: 0.9rem;">
+    © <span id="year"></span> <span data-i18n="footer_cr">Roberto Bonini</span>
+  </footer>
+  <script src="assets/main.js"></script>
+  <script src="assets/filters.js"></script>
+  <script src="data/activities/activity-cards.js"></script>
+  <script src="sections/activities/activities-section.js"></script>
+  <a href="index.html" class="home-fab" aria-label="Home">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+    </svg>
+  </a>
+</body>
+
 </html>

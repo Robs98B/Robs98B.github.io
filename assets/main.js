@@ -53,7 +53,7 @@ const translations = {
     // Projects
     proj_title: "Projects",
     proj_intro: "Selection of recent projects.",
-    
+
     proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
     proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles.",
     proj_maia_code: "Code availability: Private",
@@ -61,13 +61,16 @@ const translations = {
     proj_aicamp_title: "AICAMP (MAI4CAREU)",
     proj_aicamp_desc: "Presentation and discussion on AI research topics, group investigation on Large Language Models (LLMs).",
     proj_aicamp_code: "Code availability: No code",
-    
+
     // Common
     btn_article: "Article",
 
     // Activities
     act_title: "Academic Activities",
     act_intro: "Filter by year (since 2021). Updated list of tutoring and activities.",
+    act_2025_place: "Department of Computer Science, University of Bologna",
+    act_2025_title: "Teaching tutor for the Bachelor Degree in Computer Science",
+    act_2025_desc: "Teaching support for the Algorithms and Data Structures course",
     act_2024_place: "Department of Computer Science, University of Bologna",
     act_2024_title: "Teaching tutor for the Bachelor Degree in Computer Science",
     act_2024_desc: "Teaching support for the Algorithms and Data Structures course",
@@ -76,7 +79,7 @@ const translations = {
     act_2022_place: "Department of Computer Science, University of Bologna",
     act_2022_title: "Teaching tutor for Master's Degree in Artificial Intelligence",
     act_2022_desc: "Academic tutoring for AI coursework and research methodology",
-    
+
     // Contact
     contact_title: "Get in Touch",
     contact_sub: "Send me a message or visit my institutional page.",
@@ -85,7 +88,7 @@ const translations = {
     lbl_msg: "Message",
     btn_send: "Send Message",
     footer_cr: "Roberto Bonini",
-    
+
     // Resume - New dynamic cards
     res_view_details: "View Details",
     res_hide_details: "Hide Details",
@@ -97,7 +100,7 @@ const translations = {
     res_phd_children_research_position: "Research Assistant",
     res_phd_children_research_department: "Biomedical Engineering Lab",
     res_phd_children_research_description: "Developing AI models for medical image analysis",
-    
+
     // MSc
     res_msc_position: "MSc in Artificial Intelligence",
     res_msc_department: "Department of Computer Science and Engineering",
@@ -106,7 +109,7 @@ const translations = {
     res_msc_children_thesis_position: "Thesis Student",
     res_msc_children_thesis_department: "AI and Vision Lab",
     res_msc_children_thesis_description: "Thesis: 'Advanced Deep Learning Techniques for Medical Image Segmentation'",
-    
+
     // BSc
     res_bsc_position: "BSc in Computer Engineering",
     res_bsc_department: "Department of Engineering",
@@ -120,7 +123,7 @@ const translations = {
     res_bsc_children_internship_department: "IT Department",
     res_bsc_children_internship_description: "Developed web applications for university management system"
   },
-  
+
   it: {
     // Nav
     nav_home: "Home",
@@ -165,7 +168,7 @@ const translations = {
     filter_year: "Anno",
     filter_all: "Tutti",
     no_results: "Nessun risultato per i filtri selezionati.",
-    
+
     sci_sfn_venue: "Society for Neuroscience 2025",
     sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
     sci_sfn_auth: "Roberto Bonini, M. Filippini, F. E. Vaccari, M. De Vitisi, P. Fattori",
@@ -173,7 +176,7 @@ const translations = {
     // Projects
     proj_title: "Progetti",
     proj_intro: "Selezione di progetti recenti.",
-    
+
     proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
     proj_maia_desc: "Prototipo che integra sedia a rotelle e braccio robotico per dimostrare i principi MAIA.",
     proj_maia_code: "Disponibilità codice: Privato",
@@ -181,12 +184,15 @@ const translations = {
     proj_aicamp_title: "AICAMP (MAI4CAREU)",
     proj_aicamp_desc: "Presentazione e discussione su temi di ricerca AI, indagine del gruppo sui Large Language Models (LLMs).",
     proj_aicamp_code: "Disponibilità codice: No code",
-    
+
     // Common
     btn_article: "Articolo",
 
     // Activities
     act_title: "Attività Accademiche",
+    act_2025_place: "Dipartimento di Informatica, Università di Bologna",
+    act_2025_title: "Tutor didattico per il corso di Algoritmi e Strutture di Dati (Laurea Triennale in Informatica)",
+    act_2025_desc: "Supporto didattico per il corso di Algoritmi e Strutture Dati",
     act_2024_place: "Dipartimento di Informatica, Università di Bologna",
     act_2024_title: "Tutor didattico per il corso di Algoritmi e Strutture di Dati (Laurea Triennale in Informatica)",
     act_2024_desc: "Supporto didattico per il corso di Algoritmi e Strutture Dati",
@@ -205,7 +211,7 @@ const translations = {
     lbl_msg: "Messaggio",
     btn_send: "Invia Messaggio",
     footer_cr: "Roberto Bonini",
-    
+
     // Resume - New dynamic cards
     res_view_details: "Vedi Dettagli",
     res_hide_details: "Nascondi Dettagli",
@@ -217,7 +223,7 @@ const translations = {
     res_phd_children_research_position: "Assistente di Ricerca",
     res_phd_children_research_department: "Laboratorio di Ingegneria Biomedica",
     res_phd_children_research_description: "Sviluppo di modelli AI per l'analisi di immagini mediche",
-    
+
     // MSc
     res_msc_position: "Laurea Magistrale in AI",
     res_msc_department: "Dipartimento di Informatica e Ingegneria",
@@ -226,7 +232,7 @@ const translations = {
     res_msc_children_thesis_position: "Tesista",
     res_msc_children_thesis_department: "Laboratorio AI e Visione",
     res_msc_children_thesis_description: "Tesi: 'Tecniche Avanzate di Apprendimento Profondo per Segmentazione di Immagini Mediche'",
-    
+
     // BSc
     res_bsc_position: "Laurea Triennale in Ing. Informatica",
     res_bsc_department: "Dipartimento di Ingegneria",
@@ -250,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   let themeHoverTimeout;
-  
+
   if (savedTheme) {
     root.setAttribute('data-theme', savedTheme);
   } else if (systemDark) {
@@ -276,12 +282,12 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.setAttribute('aria-pressed', isDarkInit ? 'true' : 'false');
     themeToggle.textContent = isDarkInit ? '☾' : '☀';
     themeToggle.setAttribute('aria-label', isDarkInit ? 'Switch to light theme' : 'Switch to dark theme');
-    
+
     // Remove hover animation after 1 second
     themeToggle.addEventListener('mouseenter', () => {
       clearTimeout(themeHoverTimeout);
     });
-    
+
     themeToggle.addEventListener('mouseleave', () => {
       themeHoverTimeout = setTimeout(() => {
         themeToggle.style.transform = '';
@@ -294,9 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const langToggle = document.getElementById('lang-toggle');
   let currentLang = localStorage.getItem('lang') || 'en';
   let langHoverTimeout;
-  
+
   // Make applyLanguage globally accessible
-  window.applyLanguage = function(lang) {
+  window.applyLanguage = function (lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang][key]) {
@@ -318,12 +324,12 @@ document.addEventListener('DOMContentLoaded', () => {
       langToggle.setAttribute('aria-label', next === 'en' ? 'Switch language' : 'Cambia lingua');
     });
     langToggle.setAttribute('aria-label', currentLang === 'en' ? 'Switch language' : 'Cambia lingua');
-    
+
     // Remove hover animation after 1 second
     langToggle.addEventListener('mouseenter', () => {
       clearTimeout(langHoverTimeout);
     });
-    
+
     langToggle.addEventListener('mouseleave', () => {
       langHoverTimeout = setTimeout(() => {
         langToggle.style.transform = '';
@@ -354,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileToggle && navList) {
     mobileToggle.addEventListener('click', () => {
       const isOpen = navList.classList.contains('open');
-      if(isOpen) {
+      if (isOpen) {
         navList.classList.remove('open');
         mobileToggle.textContent = '☰';
         mobileToggle.setAttribute('aria-expanded', 'false');
@@ -364,18 +370,18 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.setAttribute('aria-expanded', 'true');
       }
     });
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (navList.classList.contains('open') && 
-          !navList.contains(e.target) && 
-          !mobileToggle.contains(e.target)) {
+      if (navList.classList.contains('open') &&
+        !navList.contains(e.target) &&
+        !mobileToggle.contains(e.target)) {
         navList.classList.remove('open');
         mobileToggle.textContent = '☰';
         mobileToggle.setAttribute('aria-expanded', 'false');
       }
     });
-    
+
     // Close menu when clicking on nav links
     navList.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
@@ -383,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.textContent = '☰';
       });
     });
-    
+
     // Close menu on window resize if above mobile breakpoint
     window.addEventListener('resize', () => {
       if (window.innerWidth > 850 && navList.classList.contains('open')) {
@@ -397,5 +403,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 4. FOOTER YEAR ---
   const yr = document.getElementById('year');
-  if(yr) yr.textContent = new Date().getFullYear();
+  if (yr) yr.textContent = new Date().getFullYear();
 });

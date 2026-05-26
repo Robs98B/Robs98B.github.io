@@ -1,6 +1,18 @@
 // Projects cards data
 const projectCards = [
   {
+    id: "places",
+    type: "Research Project",
+    context: "Horizon Europe — Royal Holloway & University of Bologna",
+    title_key: "proj_places_title",
+    desc_key: "proj_places_desc",
+    year: "2026",
+    chips: ["Extended Reality (XR)", "Virtual Reality (VR)", "Perception", "EEG", "Eye-tracking"],
+    code_availability: "none",
+    article_link: "https://doi.org/10.3030/101086206",
+    link_label_key: "btn_doi"
+  },
+  {
     id: "maia",
     type: "Robotics",
     context: "TECNALIA — San Sebastián, Spain",
@@ -9,7 +21,9 @@ const projectCards = [
     year: "2023",
     chips: ["ROS", "C++", "Python", "Hardware Integration"],
     code_note_key: "proj_maia_code",
-    code_availability: "private"
+    code_availability: "private",
+    article_link: "https://doi.org/10.3030/951910",
+    link_label_key: "btn_doi"
   },
   {
     id: "aicamp",

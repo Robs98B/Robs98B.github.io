@@ -67,7 +67,7 @@ class ResumeSection {
 
   createChildCard(child, parentId) {
     const yearRange = this.formatRange(child);
-    const desc = child.link ? '' : (child.description ? `<p class="resume-child-card-description" data-i18n="res_${parentId}_children_${child.id}_description">${child.description}</p>` : '');
+    const desc = child.description ? `<p class="resume-child-card-description" data-i18n="res_${parentId}_children_${child.id}_description">${child.description}</p>` : '';
     const link = child.link ? `<a class="child-project-link" href="${child.link}">Project details →</a>` : '';
     return `
       <div class="resume-child-card">

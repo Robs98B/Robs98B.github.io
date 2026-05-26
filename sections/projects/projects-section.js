@@ -44,7 +44,7 @@ class ProjectsSection {
     const footerHtml = card.article_link ? 
       `<div class="card-footer">
          <div class="card-year">${card.year}</div>
-         <a class="card-link" href="${card.article_link}" target="_blank" rel="noopener" data-i18n="btn_article">Article</a>
+         <a class="card-link" href="${card.article_link}" target="_blank" rel="noopener" data-i18n="${card.link_label_key || 'btn_article'}">${card.link_label || 'Article'}</a>
        </div>` :
       `<div class="card-footer">
          <div class="card-year">${card.year}</div>

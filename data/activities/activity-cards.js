@@ -1,6 +1,14 @@
 // Activities cards data
 const activityCards = [
   {
+    id: "tutor_2026",
+    role: "Teaching Tutor",
+    context_key: "act_2026_place",
+    title_key: "act_2026_title",
+    desc_key: "act_2026_desc",
+    year: "2026"
+  },
+  {
     id: "tutor_2025",
     role: "Teaching Tutor",
     context_key: "act_2025_place",

@@ -384,6 +384,22 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: 0.95rem; color: var(--md-on-surface-variant); font-style: italic;
   margin-bottom: 1.5rem;
 }
+.card-doi {
+  font-size: 0.85rem;
+  font-family: monospace;
+  color: var(--md-outline);
+  margin-bottom: 1rem;
+}
+.card-doi a {
+  color: var(--section-primary, var(--md-primary));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.card-doi a:hover {
+  color: var(--section-secondary, var(--md-secondary));
+}
 .card-year {
   margin-top: auto; /* Pushes to bottom */
   font-size: 0.9rem; font-weight: 800; color: var(--md-outline);
@@ -595,6 +611,7 @@ h1, h2, h3, h4, p { margin: 0; }
   line-height: 1.5;
   padding-left: 1rem;
   border-left: 2px solid var(--md-outline-variant);
+  white-space: pre-line;
 }
 
 @media (max-width: 420px) {

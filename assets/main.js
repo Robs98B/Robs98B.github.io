@@ -54,7 +54,10 @@ const translations = {
     proj_title: "Projects",
     proj_intro: "Selection of recent projects.",
 
-    proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
+    proj_places_title: "PLACES: PLAsticity of perception in real and virtual spaCES",
+    proj_places_desc: "European Union’s Horizon Europe Research and Innovation program, focusing on the plasticity of spatial perception in real and virtual environments.",
+
+    proj_maia_title: "MAIA: Multifunctional, Adaptive and Interactive AI system for Acting in multiple contexts",
     proj_maia_desc: "Prototype integrating wheelchair and robotic arm to demonstrate MAIA principles.",
     proj_maia_code: "Code availability: Private",
 
@@ -64,10 +67,14 @@ const translations = {
 
     // Common
     btn_article: "Article",
+    btn_doi: "DOI",
 
     // Activities
     act_title: "Academic Activities",
     act_intro: "Filter by year (since 2021). Updated list of tutoring and activities.",
+    act_2026_place: "Department of Computer Science, University of Bologna",
+    act_2026_title: "Teaching tutor for the Bachelor Degree in Computer Science",
+    act_2026_desc: "Teaching support for the Algorithms and Data Structures course",
     act_2025_place: "Department of Computer Science, University of Bologna",
     act_2025_title: "Teaching tutor for the Bachelor Degree in Computer Science",
     act_2025_desc: "Teaching support for the Algorithms and Data Structures course",
@@ -97,6 +104,10 @@ const translations = {
     res_phd_department: "Dept. of Biomedical and Neuromotor Sciences",
     res_phd_university: "University of Bologna",
     res_phd_description: "Research focus on machine learning and biomedical applications",
+    res_phd_children_visiting_rhul_position: "Visiting PhD Student",
+    res_phd_children_visiting_rhul_department: "Virtual Reality Lab",
+    res_phd_children_visiting_rhul_university: "Royal Holloway, University of London, Egham, UK",
+    res_phd_children_visiting_rhul_description: "Jointly hosted by the Departments of Psychology, Computer Science, and Electronic Engineering.\n\nCollaboration with the <strong>Centre for Reliable Machine Learning</strong>.",
     res_phd_children_research_position: "Research Assistant",
     res_phd_children_research_department: "Biomedical Engineering Lab",
     res_phd_children_research_description: "Developing AI models for medical image analysis",
@@ -177,7 +188,10 @@ const translations = {
     proj_title: "Progetti",
     proj_intro: "Selezione di progetti recenti.",
 
-    proj_maia_title: "Multifunctional, adaptive and interactive AI system for Acting in multiple contexts (MAIA)",
+    proj_places_title: "PLACES: PLAsticity of perception in real and virtual spaCES",
+    proj_places_desc: "Programma di ricerca e innovazione Horizon Europe dell'Unione Europea, focalizzato sulla plasticità della percezione spaziale in ambienti reali e virtuali.",
+
+    proj_maia_title: "MAIA: Multifunctional, Adaptive and Interactive AI system for Acting in multiple contexts",
     proj_maia_desc: "Prototipo che integra sedia a rotelle e braccio robotico per dimostrare i principi MAIA.",
     proj_maia_code: "Disponibilità codice: Privato",
 
@@ -187,9 +201,13 @@ const translations = {
 
     // Common
     btn_article: "Articolo",
+    btn_doi: "DOI",
 
     // Activities
     act_title: "Attività Accademiche",
+    act_2026_place: "Dipartimento di Informatica, Università di Bologna",
+    act_2026_title: "Tutor didattico per il corso di Algoritmi e Strutture di Dati (Laurea Triennale in Informatica)",
+    act_2026_desc: "Supporto didattico per il corso di Algoritmi e Strutture Dati",
     act_2025_place: "Dipartimento di Informatica, Università di Bologna",
     act_2025_title: "Tutor didattico per il corso di Algoritmi e Strutture di Dati (Laurea Triennale in Informatica)",
     act_2025_desc: "Supporto didattico per il corso di Algoritmi e Strutture Dati",
@@ -220,6 +238,10 @@ const translations = {
     res_phd_department: "Dip. di Scienze Biomediche e Neuromotorie",
     res_phd_university: "Università di Bologna",
     res_phd_description: "Focus di ricerca su apprendimento automatico e applicazioni biomediche",
+    res_phd_children_visiting_rhul_position: "Visiting PhD Student",
+    res_phd_children_visiting_rhul_department: "Virtual Reality Lab",
+    res_phd_children_visiting_rhul_university: "Royal Holloway, University of London, Egham, UK",
+    res_phd_children_visiting_rhul_description: "Ospitato congiuntamente dai Dipartimenti di Psicologia, Informatica ed Ingegneria Elettronica.\n\nCollaborazione con il <strong>Centre for Reliable Machine Learning</strong>.",
     res_phd_children_research_position: "Assistente di Ricerca",
     res_phd_children_research_department: "Laboratorio di Ingegneria Biomedica",
     res_phd_children_research_description: "Sviluppo di modelli AI per l'analisi di immagini mediche",
@@ -306,7 +328,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang][key]) {
-        el.innerText = translations[lang][key];
+        const val = translations[lang][key];
+        if (val.includes('<') && val.includes('>')) {
+          el.innerHTML = val;
+        } else {
+          el.innerText = val;
+        }
       }
     });
     document.documentElement.lang = lang;

@@ -58,7 +58,21 @@ const resumeCards = [
     position: "PhD Student",
     university: "University of Bologna",
     icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3l10 5-10 5L2 8l10-5z\"></path><path d=\"M4 10v5c0 3 16 3 16 0v-5\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\"></path><circle cx=\"20\" cy=\"13\" r=\"1\"></circle></svg>",
-    color: "#1976d2"
+    color: "#1976d2",
+    children: [
+      {
+        id: "visiting_rhul",
+        monthStart: "Jan",
+        yearStart: "2026",
+        monthEnd: "May",
+        yearEnd: "2026",
+        position: "Visiting PhD Student",
+        department: "Virtual Reality Lab",
+        university: "Royal Holloway, University of London, Egham, UK",
+        description: "Jointly hosted by the Departments of Psychology, Computer Science, and Electronic Engineering.\n\nCollaboration with the <strong>Centre for Reliable Machine Learning</strong>.",
+        link: "projects.html"
+      }
+    ]
   }
 ];
 
@@ -81,7 +95,11 @@ const resumeTranslations = {
     "res_msc_children_thesis_description": "Integrating neuro-ocular data for accurate hand moving decoding in brain-controlled robotic systems",
 
     "res_phd_position": "PhD Student",
-    "res_phd_university": "University of Bologna"
+    "res_phd_university": "University of Bologna",
+    "res_phd_children_visiting_rhul_position": "Visiting PhD Student",
+    "res_phd_children_visiting_rhul_department": "Virtual Reality Lab",
+    "res_phd_children_visiting_rhul_university": "Royal Holloway, University of London, Egham, UK",
+    "res_phd_children_visiting_rhul_description": "Jointly hosted by the Departments of Psychology, Computer Science, and Electronic Engineering.\n\nCollaboration with the <strong>Centre for Reliable Machine Learning</strong>."
   },
   it: {
     "res_bsc_position": "Laurea Triennale in Ing. Informatica",
@@ -101,6 +119,10 @@ const resumeTranslations = {
     "res_msc_children_thesis_description": "Integrazione di dati neuro-oculari per la decodifica accurata del movimento della mano in sistemi robotici controllati dal cervello",
 
     "res_phd_position": "Dottorando (PhD)",
-    "res_phd_university": "Università di Bologna"
+    "res_phd_university": "Università di Bologna",
+    "res_phd_children_visiting_rhul_position": "Visiting PhD Student",
+    "res_phd_children_visiting_rhul_department": "Virtual Reality Lab",
+    "res_phd_children_visiting_rhul_university": "Royal Holloway, University of London, Egham, UK",
+    "res_phd_children_visiting_rhul_description": "Ospitato congiuntamente dai Dipartimenti di Psicologia, Informatica ed Ingegneria Elettronica.\n\nCollaborazione con il <strong>Centre for Reliable Machine Learning</strong>."
   }
 };

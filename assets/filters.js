@@ -99,9 +99,7 @@
       if (yearOk && itemCat) availableCatsForYear.add(itemCat);
       if (yearOk && catOk) {
         el.style.display = '';
-        el.style.animation = 'none';
-        void el.offsetHeight;
-        el.style.animation = 'fade-in-up 0.4s var(--ease-standard) forwards';
+        el.style.opacity = '1';
         visibleCount++;
       } else {
         el.style.display = 'none';

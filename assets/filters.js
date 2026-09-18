@@ -168,4 +168,6 @@
   if (itemsContainer.children.length > 0) {
     initFilters();
   }
+
+  window.initFilters = initFilters;
 })();

@@ -456,4 +456,179 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 4. FOOTER YEAR ---
   const yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
+
+  // --- 5. FLUID PAGE TRANSITIONS ---
+  async function loadPageScripts(doc, filename) {
+    // Find all script tags in target doc
+    const scripts = Array.from(doc.querySelectorAll('script[src]'));
+    for (const s of scripts) {
+      const src = s.getAttribute('src');
+      if (src && !src.includes('main.js')) {
+        await new Promise((resolve) => {
+          const existing = Array.from(document.querySelectorAll('script')).find(
+            el => el.getAttribute('src') === src || (el.src && el.src.endsWith(src))
+          );
+          if (existing) {
+            resolve();
+            return;
+          }
+          const newScript = document.createElement('script');
+          newScript.src = src;
+          newScript.onload = () => resolve();
+          newScript.onerror = () => resolve();
+          document.body.appendChild(newScript);
+        });
+      }
+    }
+
+    // Initialize page components
+    if (filename === 'resume.html') {
+      if (typeof ResumeSection !== 'undefined') {
+        new ResumeSection().init();
+      }
+    } else if (filename === 'science.html') {
+      if (typeof ScienceSection !== 'undefined') {
+        new ScienceSection();
+      }
+      if (typeof window.initFilters === 'function') {
+        window.initFilters();
+      }
+    } else if (filename === 'projects.html') {
+      if (typeof ProjectsSection !== 'undefined') {
+        new ProjectsSection();
+      }
+    } else if (filename === 'activities.html') {
+      if (typeof ActivitiesSection !== 'undefined') {
+        new ActivitiesSection();
+      }
+      if (typeof window.initFilters === 'function') {
+        window.initFilters();
+      }
+    }
+
+    // Re-apply language
+    const lang = localStorage.getItem('lang') || 'en';
+    if (typeof window.applyLanguage === 'function') {
+      window.applyLanguage(lang);
+    }
+  }
+
+  async function navigateTo(url, pushHistory = true) {
+    const targetUrl = new URL(url, window.location.origin);
+    const targetPath = targetUrl.pathname.split('/').pop() || 'index.html';
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+    if (targetPath === currentPath && targetUrl.search === window.location.search && targetUrl.hash === window.location.hash) {
+      return;
+    }
+
+    // Update active nav state immediately
+    document.querySelectorAll('.nav-link').forEach(navLink => {
+      const href = navLink.getAttribute('href');
+      const linkPath = href ? href.split('/').pop() : '';
+      if (linkPath === targetPath || (linkPath === 'index.html' && (targetPath === '' || targetPath === 'index.html'))) {
+        navLink.setAttribute('aria-current', 'page');
+      } else {
+        navLink.removeAttribute('aria-current');
+      }
+    });
+
+    // Close mobile menu if open
+    if (navList && navList.classList.contains('open')) {
+      navList.classList.remove('open');
+      if (mobileToggle) {
+        mobileToggle.textContent = '☰';
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    const performSwap = async () => {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        document.title = doc.title;
+        document.body.className = doc.body.className;
+
+        const currentMain = document.querySelector('main');
+        const newMain = doc.querySelector('main');
+        if (currentMain && newMain) {
+          currentMain.innerHTML = newMain.innerHTML;
+          currentMain.className = newMain.className;
+        }
+
+        if (pushHistory) {
+          window.history.pushState({ path: targetPath }, '', url);
+        }
+
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        await loadPageScripts(doc, targetPath);
+
+        const yrEl = document.getElementById('year');
+        if (yrEl) yrEl.textContent = new Date().getFullYear();
+      } catch (err) {
+        console.warn('Transition fallback to location:', err);
+        window.location.href = url;
+      }
+    };
+
+    if (document.startViewTransition) {
+      document.startViewTransition(performSwap);
+    } else {
+      const main = document.querySelector('main');
+      if (main) {
+        main.style.opacity = '0';
+        main.style.transform = 'translateY(-6px)';
+        main.style.transition = 'opacity 150ms cubic-bezier(0.4, 0, 0.2, 1), transform 150ms cubic-bezier(0.4, 0, 0.2, 1)';
+        await new Promise(r => setTimeout(r, 150));
+      }
+      await performSwap();
+      const updatedMain = document.querySelector('main');
+      if (updatedMain) {
+        updatedMain.style.opacity = '0';
+        updatedMain.style.transform = 'translateY(8px)';
+        updatedMain.style.transition = 'opacity 280ms cubic-bezier(0.16, 1, 0.3, 1), transform 280ms cubic-bezier(0.16, 1, 0.3, 1)';
+        requestAnimationFrame(() => {
+          updatedMain.style.opacity = '1';
+          updatedMain.style.transform = 'translateY(0)';
+        });
+      }
+    }
+  }
+
+  // Intercept click on navigation links
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    if (
+      href.startsWith('http://') ||
+      href.startsWith('https://') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.startsWith('#') ||
+      href.endsWith('.pdf') ||
+      link.target === '_blank' ||
+      e.ctrlKey || e.metaKey || e.shiftKey || e.altKey
+    ) {
+      return;
+    }
+
+    const isHtmlPage = href.endsWith('.html') || href === '/' || href === 'index.html';
+    if (isHtmlPage) {
+      e.preventDefault();
+      navigateTo(link.href, true);
+    }
+  });
+
+  window.addEventListener('popstate', () => {
+    navigateTo(window.location.href, false);
+  });
 });

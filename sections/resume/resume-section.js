@@ -41,6 +41,7 @@ class ResumeSection {
   createTimelineItem(card, index) {
     const item = document.createElement('article');
     item.className = 'cv-item';
+    item.style.setProperty('--delay', index + 1);
     
     const yearRange = this.formatRange(card);
 

@@ -1,5 +1,33 @@
 /* assets/styles.css - Roberto Bonini Academic Portfolio */
 
+/* --- NATIVE VIEW TRANSITIONS API --- */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(root) {
+  animation: 140ms cubic-bezier(0.4, 0, 1, 1) both page-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 260ms cubic-bezier(0.16, 1, 0.3, 1) both page-fade-in;
+}
+
+@keyframes page-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* --- DESIGN TOKENS --- */
 :root {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -49,6 +77,7 @@
   --shape-l: 16px;
   --shape-pill: 999px;
 
+  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -108,7 +137,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.25s var(--ease-fluid), color 0.25s var(--ease-fluid);
 }
 
 a {
@@ -149,7 +178,7 @@ h1, h2, h3, h4, h5, p {
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: all 0.25s ease;
+  transition: all 0.25s var(--ease-fluid);
 }
 
 .brand-logo {
@@ -177,7 +206,7 @@ h1, h2, h3, h4, h5, p {
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-secondary);
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: color 0.2s var(--ease-fluid), background-color 0.2s var(--ease-fluid), transform 0.2s var(--ease-fluid);
 }
 
 .nav-link:hover {
@@ -189,6 +218,7 @@ h1, h2, h3, h4, h5, p {
   background: var(--text-primary);
   color: var(--bg-body) !important;
   font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="light"] .nav-link[aria-current="page"] {
@@ -215,12 +245,13 @@ h1, h2, h3, h4, h5, p {
   display: grid;
   place-items: center;
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease-fluid);
 }
 
 .icon-btn:hover {
   color: var(--text-primary);
   background: var(--accent-soft);
+  transform: translateY(-1px);
 }
 
 .lang-btn {
@@ -279,6 +310,7 @@ h1, h2, h3, h4, h5, p {
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
+  animation: fluid-reveal 380ms var(--ease-fluid) both;
 }
 
 .hero p, .hero-subtitle {
@@ -287,6 +319,7 @@ h1, h2, h3, h4, h5, p {
   color: var(--text-secondary);
   max-width: 58ch;
   margin: 0 auto;
+  animation: fluid-reveal 420ms var(--ease-fluid) 40ms both;
 }
 
 /* --- HOME / PROFILE --- */
@@ -305,6 +338,7 @@ h1, h2, h3, h4, h5, p {
   border: 1px solid var(--border-color);
   border-radius: var(--shape-l);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fluid-reveal 420ms var(--ease-fluid) both;
 }
 
 .profile-img-frame {
@@ -366,7 +400,7 @@ h1, h2, h3, h4, h5, p {
   color: var(--text-secondary);
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-bottom-color 0.2s;
 }
 
 .profile-email a:hover {
@@ -392,14 +426,15 @@ h1, h2, h3, h4, h5, p {
   color: var(--text-primary);
   font-size: 0.86rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease-fluid);
 }
 
 .social-btn:hover {
   background: var(--text-primary);
   color: var(--bg-body);
   border-color: var(--text-primary);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="light"] .social-btn:hover {
@@ -407,6 +442,10 @@ h1, h2, h3, h4, h5, p {
 }
 
 /* Bio & Interests */
+.bio-section {
+  animation: fluid-reveal 450ms var(--ease-fluid) 50ms both;
+}
+
 .bio-section h2 {
   font-size: 1.65rem;
   margin-bottom: 1rem;
@@ -446,6 +485,12 @@ h1, h2, h3, h4, h5, p {
   font-weight: 500;
   font-size: 0.86rem;
   cursor: default;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.interest-pill:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
 }
 
 /* --- CURRICULUM VITAE / RESUME --- */
@@ -455,6 +500,7 @@ h1, h2, h3, h4, h5, p {
   gap: 1rem;
   margin-top: 1.5rem;
   flex-wrap: wrap;
+  animation: fluid-reveal 450ms var(--ease-fluid) 80ms both;
 }
 
 .cv-download-btn {
@@ -467,13 +513,14 @@ h1, h2, h3, h4, h5, p {
   color: #FFFFFF !important;
   font-weight: 600;
   font-size: 0.92rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+  transition: all 0.22s var(--ease-fluid);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
 }
 
 .cv-download-btn:hover {
   background: var(--accent-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
 }
 
 .cv-meta-pill {
@@ -496,12 +543,12 @@ h1, h2, h3, h4, h5, p {
   color: var(--text-primary);
   font-weight: 500;
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  transition: all 0.22s var(--ease-fluid);
 }
 
 .cv-outline-btn:hover {
   border-color: var(--border-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 /* CV Timeline */
@@ -525,6 +572,8 @@ h1, h2, h3, h4, h5, p {
 .cv-item {
   position: relative;
   margin-bottom: 2.75rem;
+  animation: fluid-reveal 400ms var(--ease-fluid) both;
+  animation-delay: calc(var(--delay, 1) * 35ms);
 }
 
 .cv-spine {
@@ -539,6 +588,12 @@ h1, h2, h3, h4, h5, p {
   border-radius: 50%;
   background: var(--bg-body);
   border: 3px solid var(--accent);
+  transition: transform 0.2s var(--ease-fluid), border-color 0.2s var(--ease-fluid);
+}
+
+.cv-item:hover .cv-dot {
+  transform: scale(1.15);
+  border-color: var(--accent-hover);
 }
 
 .cv-content {
@@ -547,6 +602,13 @@ h1, h2, h3, h4, h5, p {
   border-radius: var(--shape-l);
   padding: 1.75rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.24s var(--ease-fluid), border-color 0.24s var(--ease-fluid), box-shadow 0.24s var(--ease-fluid);
+}
+
+.cv-content:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .cv-header {
@@ -611,6 +673,11 @@ h1, h2, h3, h4, h5, p {
 .cv-sub-item {
   padding-left: 1rem;
   border-left: 2px solid var(--border-color);
+  transition: border-left-color 0.2s ease;
+}
+
+.cv-sub-item:hover {
+  border-left-color: var(--accent);
 }
 
 .cv-sub-header {
@@ -653,10 +720,12 @@ h1, h2, h3, h4, h5, p {
   font-size: 0.84rem;
   font-weight: 600;
   color: var(--accent);
+  transition: color 0.2s ease;
 }
 
 .cv-sub-link:hover {
   text-decoration: underline;
+  color: var(--accent-hover);
 }
 
 /* --- GENERIC CARDS & GRIDS (Science, Projects, Activities) --- */
@@ -677,14 +746,16 @@ h1, h2, h3, h4, h5, p {
   flex-direction: column;
   height: 100%;
   opacity: 1 !important; /* Always visible */
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  animation: fluid-reveal 400ms var(--ease-fluid) both;
+  animation-delay: calc(var(--delay, 1) * 35ms);
+  transition: border-color 0.24s var(--ease-fluid), transform 0.24s var(--ease-fluid), box-shadow 0.24s var(--ease-fluid);
 }
 
 .card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.09);
 }
 
 /* Science Card Specific */
@@ -744,6 +815,7 @@ h1, h2, h3, h4, h5, p {
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .card-doi a:hover {
@@ -854,6 +926,7 @@ h1, h2, h3, h4, h5, p {
   flex-direction: column;
   gap: 1rem;
   border: 1px solid var(--border-color);
+  animation: fluid-reveal 400ms var(--ease-fluid) 50ms both;
 }
 
 @media (min-width: 768px) {
@@ -909,12 +982,13 @@ h1, h2, h3, h4, h5, p {
   color: var(--text-secondary);
   font-size: 0.84rem;
   font-weight: 500;
-  transition: all 0.15s ease;
+  transition: all 0.18s var(--ease-fluid);
 }
 
 .filter-pill:hover .pill-content {
   border-color: var(--border-hover);
   color: var(--text-primary);
+  transform: translateY(-1px);
 }
 
 .filter-pill input:checked + .pill-content {
@@ -922,6 +996,7 @@ h1, h2, h3, h4, h5, p {
   color: var(--bg-body);
   border-color: var(--text-primary);
   font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 [data-theme="light"] .filter-pill input:checked + .pill-content {
@@ -931,6 +1006,7 @@ h1, h2, h3, h4, h5, p {
 .filter-pill.disabled .pill-content {
   opacity: 0.35;
   cursor: not-allowed;
+  transform: none;
 }
 
 /* --- CONTACT SECTION --- */
@@ -941,6 +1017,7 @@ h1, h2, h3, h4, h5, p {
   border: 1px solid var(--border-color);
   border-radius: var(--shape-l);
   padding: 2.25rem;
+  animation: fluid-reveal 420ms var(--ease-fluid) both;
 }
 
 .contact-form {
@@ -961,7 +1038,7 @@ h1, h2, h3, h4, h5, p {
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-size: 0.95rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-field label {
@@ -972,7 +1049,7 @@ h1, h2, h3, h4, h5, p {
   background: transparent;
   color: var(--text-muted);
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease-fluid);
   pointer-events: none;
 }
 
@@ -984,6 +1061,7 @@ h1, h2, h3, h4, h5, p {
 .form-field input:focus, .form-field textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .form-field input:not(:placeholder-shown) + label,
@@ -1041,7 +1119,7 @@ h1, h2, h3, h4, h5, p {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-6px);
-    transition: all 0.2s ease;
+    transition: all 0.2s var(--ease-fluid);
   }
   .nav-list.open {
     opacity: 1;
@@ -1101,7 +1179,7 @@ h1, h2, h3, h4, h5, p {
   color: #FFFFFF;
   border: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease-fluid);
 }
 
 @media (max-width: 850px) {
@@ -1122,5 +1200,22 @@ h1, h2, h3, h4, h5, p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+/* --- KEYFRAME DEFINITIONS --- */
+@keyframes fluid-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

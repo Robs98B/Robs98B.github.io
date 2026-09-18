@@ -2,12 +2,13 @@
 const scienceCards = [
   {
     id: "copa_2026",
-    category: "publication",
+    category: "abstract",
     year: "2026",
     venue_key: "sci_copa_venue",
     title_key: "sci_copa_title",
     authors_key: "sci_copa_auth",
-    url: "https://proceedings.mlr.press/v329/bonini26a.html"
+    url: "https://proceedings.mlr.press/v329/bonini26a.html",
+    link_label_key: "btn_abstract"
   },
   {
     id: "sfn_2025",

@@ -43,7 +43,7 @@ class ScienceSection {
       <div class="card-venue" data-i18n="${card.venue_key}"></div>
       <h3 class="card-title" data-i18n="${card.title_key}"></h3>
       <div class="card-authors" data-i18n="${card.authors_key}"></div>
-      ${card.doi ? `<div class="card-doi">DOI: <a href="${card.doi.startsWith('http') ? card.doi : 'https://doi.org/' + card.doi}" target="_blank" rel="noopener">${card.doi}</a></div>` : (card.url ? `<div class="card-doi"><a href="${card.url}" target="_blank" rel="noopener" data-i18n="${card.link_label_key || 'btn_article'}">Article</a></div>` : '')}
+      ${card.doi ? `<div class="card-doi">DOI: <a href="${card.doi.startsWith('http') ? card.doi : 'https://doi.org/' + card.doi}" target="_blank" rel="noopener">${card.doi}</a></div>` : (card.url ? `<div class="card-doi"><a href="${card.url}" target="_blank" rel="noopener" data-i18n="${card.link_label_key || 'btn_article'}">${card.link_label_key === 'btn_abstract' ? 'Abstract' : 'Article'}</a></div>` : '')}
       <div class="card-year">${card.year}</div>
     `;
 

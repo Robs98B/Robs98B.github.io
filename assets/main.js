@@ -73,6 +73,7 @@ const translations = {
 
     // Common
     btn_article: "Article",
+    btn_abstract: "Abstract",
     btn_doi: "DOI",
     btn_orcid: "ORCID",
 
@@ -214,6 +215,7 @@ const translations = {
 
     // Common
     btn_article: "Articolo",
+    btn_abstract: "Abstract",
     btn_doi: "DOI",
     btn_orcid: "ORCID",
 

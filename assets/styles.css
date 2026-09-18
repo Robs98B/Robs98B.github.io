@@ -251,7 +251,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .profile-email a { color: var(--md-primary); text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s; }
 .profile-email a:hover { color: var(--md-on-primary-container); }
 
-.social-links { display: flex; gap: 1rem; justify-content: center; }
+.social-links { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
 .social-btn {
   display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
   border-radius: var(--shape-pill); background: var(--md-surface-bright);
@@ -805,4 +805,4 @@ article.card:hover .blob-c { transform: translate(4px, -4px) scale(1.03); opacit
 .form-field label { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); background: transparent; padding: 0 6px; color: var(--md-on-surface-variant); transition: all 0.2s var(--ease-standard); pointer-events: none; }
 .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--md-primary); box-shadow: 0 0 0 3px rgba(208, 188, 255, 0.25); }
 .form-field input:not(:placeholder-shown) + label, .form-field textarea:not(:placeholder-shown) + label, .form-field input:focus + label, .form-field textarea:focus + label { top: -6px; transform: none; font-size: 0.8rem; color: var(--md-primary); background: var(--md-surface-bright); }
-.contact-links { text-align: center; margin-top: 1.5rem; }
+.contact-links { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }

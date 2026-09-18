@@ -23,6 +23,8 @@ const translations = {
     int_bci: "Brain-Computer Interfaces",
     int_nc: "Neural Coding & Modeling",
     int_sp: "Signal Processing",
+    int_uq: "Uncertainty Quantification",
+    int_prob_ml: "Probabilistic & Reliable ML",
 
     // Resume
     resume_title: "Resume",
@@ -46,6 +48,10 @@ const translations = {
     filter_all: "All",
     no_results: "No results found for current filters.",
     // Science Items
+    sci_copa_venue: "15th Symposium on Conformal and Probabilistic Prediction With Applications (PMLR 329:1066–1069, 2026)",
+    sci_copa_title: "Geometry-Aware Conformal Decoding for Motor BCI Systems",
+    sci_copa_auth: "Roberto Bonini, Zhiyuan Luo, Matteo Filippini, Patrizia Fattori",
+
     sci_sfn_venue: "Society for Neuroscience 2025",
     sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
     sci_sfn_auth: "Roberto Bonini, M. Filippini, F. E. Vaccari, M. De Vitisi, P. Fattori",
@@ -68,6 +74,7 @@ const translations = {
     // Common
     btn_article: "Article",
     btn_doi: "DOI",
+    btn_orcid: "ORCID",
 
     // Activities
     act_title: "Academic Activities",
@@ -119,7 +126,7 @@ const translations = {
     res_msc_description: "110/110 cum laude, thesis on deep learning for computer vision",
     res_msc_children_thesis_position: "Thesis Student",
     res_msc_children_thesis_department: "AI and Vision Lab",
-    res_msc_children_thesis_description: "Thesis: 'Advanced Deep Learning Techniques for Medical Image Segmentation'",
+    res_msc_children_thesis_description: "Thesis: 'Integrating neuro-ocular data for accurate hand moving decoding in brain-controlled robotic systems'",
 
     // BSc
     res_bsc_position: "BSc in Computer Engineering",
@@ -157,6 +164,8 @@ const translations = {
     int_bci: "Brain-Computer Interfaces",
     int_nc: "Neural Coding & Modeling",
     int_sp: "Signal Processing",
+    int_uq: "Quantificazione dell'Incertezza",
+    int_prob_ml: "ML Probabilistico e Affidabile",
 
     // Resume
     resume_title: "Curriculum",
@@ -180,6 +189,10 @@ const translations = {
     filter_all: "Tutti",
     no_results: "Nessun risultato per i filtri selezionati.",
 
+    sci_copa_venue: "15th Symposium on Conformal and Probabilistic Prediction With Applications (PMLR 329:1066–1069, 2026)",
+    sci_copa_title: "Geometry-Aware Conformal Decoding for Motor BCI Systems",
+    sci_copa_auth: "Roberto Bonini, Zhiyuan Luo, Matteo Filippini, Patrizia Fattori",
+
     sci_sfn_venue: "Society for Neuroscience 2025",
     sci_sfn_title: "Multi-horizon neural decoding enables delay-free, biologically plausible kinematic forecasts for brain-computer interfaces",
     sci_sfn_auth: "Roberto Bonini, M. Filippini, F. E. Vaccari, M. De Vitisi, P. Fattori",
@@ -202,6 +215,7 @@ const translations = {
     // Common
     btn_article: "Articolo",
     btn_doi: "DOI",
+    btn_orcid: "ORCID",
 
     // Activities
     act_title: "Attività Accademiche",
@@ -253,7 +267,7 @@ const translations = {
     res_msc_description: "110/110 e lode, tesi su apprendimento profondo per visione artificiale",
     res_msc_children_thesis_position: "Tesista",
     res_msc_children_thesis_department: "Laboratorio AI e Visione",
-    res_msc_children_thesis_description: "Tesi: 'Tecniche Avanzate di Apprendimento Profondo per Segmentazione di Immagini Mediche'",
+    res_msc_children_thesis_description: "Tesi: 'Integrazione di dati neuro-oculari per la decodifica accurata del movimento della mano in sistemi robotici controllati dal cervello'",
 
     // BSc
     res_bsc_position: "Laurea Triennale in Ing. Informatica",

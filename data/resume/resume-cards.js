@@ -57,6 +57,8 @@ const resumeCards = [
     yearEnd: "Present",
     position: "PhD Student",
     university: "University of Bologna",
+    department: "Department of Biomedical and Neuromotor Sciences",
+    description: "Laboratory of Neurophysiology of the Visuo-Motor System · Supervisors: Prof. Patrizia Fattori, Matteo Filippini",
     icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3l10 5-10 5L2 8l10-5z\"></path><path d=\"M4 10v5c0 3 16 3 16 0v-5\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\"></path><circle cx=\"20\" cy=\"13\" r=\"1\"></circle></svg>",
     color: "#1976d2",
     children: [
@@ -96,6 +98,8 @@ const resumeTranslations = {
 
     "res_phd_position": "PhD Student",
     "res_phd_university": "University of Bologna",
+    "res_phd_department": "Department of Biomedical and Neuromotor Sciences",
+    "res_phd_description": "Laboratory of Neurophysiology of the Visuo-Motor System · Supervisors: Prof. Patrizia Fattori, Matteo Filippini",
     "res_phd_children_visiting_rhul_position": "Visiting PhD Student",
     "res_phd_children_visiting_rhul_department": "Virtual Reality Lab",
     "res_phd_children_visiting_rhul_university": "Royal Holloway, University of London, Egham, UK",
@@ -120,6 +124,8 @@ const resumeTranslations = {
 
     "res_phd_position": "Dottorando (PhD)",
     "res_phd_university": "Università di Bologna",
+    "res_phd_department": "Dipartimento di Scienze Biomediche e Neuromotorie",
+    "res_phd_description": "Laboratorio di Neurofisiologia del Sistema Visuo-Motorio · Supervisori: Prof.ssa Patrizia Fattori, Matteo Filippini",
     "res_phd_children_visiting_rhul_position": "Visiting PhD Student",
     "res_phd_children_visiting_rhul_department": "Virtual Reality Lab",
     "res_phd_children_visiting_rhul_university": "Royal Holloway, University of London, Egham, UK",

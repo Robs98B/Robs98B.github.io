@@ -27,7 +27,10 @@ const translations = {
     int_prob_ml: "Probabilistic & Reliable ML",
 
     // Resume
-    resume_title: "Resume",
+    resume_title: "Curriculum Vitae",
+    resume_sub: "Academic appointments, international research stays, and laboratory milestones.",
+    btn_download_cv: "Download Official CV",
+    btn_unibo_cv: "Unibo Institutional Page ↗",
     res_curr_date: "2024 — Present",
     res_phd_title: "PhD Student",
     res_phd_desc: "Dept. of Biomedical and Neuromotor Sciences — University of Bologna.",
@@ -40,6 +43,7 @@ const translations = {
 
     // Science
     sci_title: "Science",
+    sci_sub: "Peer-reviewed publications, symposium contributions, and neural decoding methodologies.",
     filter_cat: "Category",
     lbl_pub: "Publications",
     lbl_abs: "Abstracts",
@@ -169,7 +173,10 @@ const translations = {
     int_prob_ml: "ML Probabilistico e Affidabile",
 
     // Resume
-    resume_title: "Curriculum",
+    resume_title: "Curriculum Vitae",
+    resume_sub: "Carriera accademica, periodi di ricerca all'estero e traguardi di laboratorio.",
+    btn_download_cv: "Scarica Curriculum Ufficiale",
+    btn_unibo_cv: "Pagina Istituzionale Unibo ↗",
     res_curr_date: "2024 — Presente",
     res_phd_title: "Dottorando (PhD)",
     res_phd_desc: "Dip. di Scienze Biomediche e Neuromotorie — Università di Bologna.",
@@ -182,6 +189,7 @@ const translations = {
 
     // Science
     sci_title: "Ricerca",
+    sci_sub: "Pubblicazioni peer-reviewed, contributi a conferenze e metodologie di decodifica neurale.",
     filter_cat: "Categoria",
     lbl_pub: "Pubblicazioni",
     lbl_abs: "Abstract",
@@ -356,6 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langToggle) langToggle.textContent = translations[lang]['btn_lang'];
     localStorage.setItem('lang', lang);
     currentLang = lang;
+    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
   };
 
   applyLanguage(currentLang);

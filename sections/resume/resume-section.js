@@ -19,6 +19,10 @@ class ResumeSection {
       const currentLang = localStorage.getItem('lang') || 'en';
       applyLanguage(currentLang);
     }
+    window.addEventListener('languageChanged', (e) => {
+      this.currentLang = e.detail?.lang || localStorage.getItem('lang') || 'en';
+      this.renderCards();
+    });
   }
 
   renderCards() {
@@ -36,55 +40,96 @@ class ResumeSection {
   }
 
   createTimelineItem(card, index) {
-    const item = document.createElement('div');
-    item.className = 'timeline-item';
+    const item = document.createElement('article');
+    item.className = 'chronicle-item';
     item.style.setProperty('--delay', index + 1);
     
     const yearRange = this.formatRange(card);
 
     item.innerHTML = `
-      <div class="timeline-dot"></div>
-      <span class="timeline-date">${yearRange}</span>
-      <div class="timeline-card resume-card" style="--card-color: ${card.color}">
-        <div class="resume-card-header">
-          <div class="resume-card-info">
-            <h3 class="resume-card-position" data-i18n="res_${card.id}_position">${card.position}</h3>
-            ${card.university ? `<p class="resume-card-university" data-i18n="res_${card.id}_university">${card.university}</p>` : ''}
-            ${card.department ? `<p class="resume-card-department" data-i18n="res_${card.id}_department">${card.department}</p>` : ''}
-          </div>
+      <div class="chronicle-spine">
+        <div class="chronicle-node">
+          <span class="node-pulse"></span>
         </div>
-        ${card.description ? `<p class="resume-card-description" data-i18n="res_${card.id}_description">${card.description}</p>` : ''}
-        ${card.children && card.children.length > 0 ? `
-          <div class="resume-card-children">
-            ${card.children.map(child => this.createChildCard(child, card.id)).join('')}
+        <div class="chronicle-line"></div>
+      </div>
+
+      <div class="chronicle-body">
+        <div class="chronicle-top-meta">
+          <span class="chronicle-period-pill">${yearRange}</span>
+          <span class="chronicle-type-tag">${card.id.toUpperCase()}</span>
+        </div>
+
+        <div class="chronicle-main-card">
+          <h3 class="chronicle-position" data-i18n="res_${card.id}_position">${card.position}</h3>
+          <div class="chronicle-institution-row">
+            ${card.university ? `<span class="chronicle-uni" data-i18n="res_${card.id}_university">${card.university}</span>` : ''}
+            ${card.department ? `<span class="chronicle-dept-divider">/</span><span class="chronicle-dept" data-i18n="res_${card.id}_department">${card.department}</span>` : ''}
           </div>
-        ` : ''}
+
+          ${card.description ? `
+            <div class="chronicle-annotation">
+              <span class="annotation-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              </span>
+              <span class="annotation-text" data-i18n="res_${card.id}_description">${card.description}</span>
+            </div>
+          ` : ''}
+
+          ${card.children && card.children.length > 0 ? `
+            <div class="chronicle-milestones-group">
+              <div class="milestones-header">
+                <span class="milestones-header-line"></span>
+                <span class="milestones-header-label">APPOINTMENTS & RESEARCH STAYS</span>
+                <span class="milestones-header-line"></span>
+              </div>
+              <div class="chronicle-milestones-list">
+                ${card.children.map(child => this.createChildMilestone(child, card.id)).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </div>
       </div>
     `;
 
     return item;
   }
 
-  createChildCard(child, parentId) {
+  createChildMilestone(child, parentId) {
     const yearRange = this.formatRange(child);
-    const desc = child.description ? `<p class="resume-child-card-description" data-i18n="res_${parentId}_children_${child.id}_description">${child.description}</p>` : '';
-    const link = child.link ? `<a class="child-project-link" href="${child.link}">Project details →</a>` : '';
+    const desc = child.description ? `<p class="milestone-desc" data-i18n="res_${parentId}_children_${child.id}_description">${child.description}</p>` : '';
+    const link = child.link ? `<a class="milestone-link-btn" href="${child.link}"><span data-i18n="btn_details">Project Brief</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>` : '';
+    
+    let milestoneTag = 'MILESTONE';
+    if (child.id.includes('visiting')) milestoneTag = 'VISITING RESEARCH';
+    else if (child.id.includes('traineeship')) milestoneTag = 'TRAINEESHIP';
+    else if (child.id.includes('thesis')) milestoneTag = 'MASTER\'S THESIS';
+    else if (child.id.includes('erasmus')) milestoneTag = 'EXCHANGE';
+
     return `
-      <div class="resume-child-card">
-        <div class="resume-child-card-header">
-          ${yearRange ? `<span class="resume-child-card-date">${yearRange}</span>` : ''}
-          <h4 class="resume-child-card-position" data-i18n="res_${parentId}_children_${child.id}_position">${child.position}</h4>
+      <div class="chronicle-milestone">
+        <div class="milestone-indicator">
+          <span class="milestone-pip"></span>
         </div>
-        ${child.department ? `<p class="resume-child-card-department" data-i18n="res_${parentId}_children_${child.id}_department">${child.department}</p>` : ''}
-        ${child.university ? `<p class="resume-child-card-university" data-i18n="res_${parentId}_children_${child.id}_university">${child.university}</p>` : ''}
-        ${desc}
-        ${link}
+        <div class="milestone-content">
+          <div class="milestone-meta-row">
+            <span class="milestone-tag">${milestoneTag}</span>
+            ${yearRange ? `<span class="milestone-date">${yearRange}</span>` : ''}
+          </div>
+          <h4 class="milestone-title" data-i18n="res_${parentId}_children_${child.id}_position">${child.position}</h4>
+          <div class="milestone-inst-row">
+            ${child.department ? `<span class="milestone-dept" data-i18n="res_${parentId}_children_${child.id}_department">${child.department}</span>` : ''}
+            ${child.university ? `<span class="milestone-uni" data-i18n="res_${parentId}_children_${child.id}_university">${child.university}</span>` : ''}
+          </div>
+          ${desc}
+          ${link}
+        </div>
       </div>
     `;
   }
 
   setupAnimations() {
-    const cards = document.querySelectorAll('.resume-card');
+    const cards = document.querySelectorAll('.chronicle-item');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

@@ -37,8 +37,6 @@ class ScienceSection {
     article.style.setProperty('--delay', index + 1);
 
     article.innerHTML = `
-      <div class="card-blob blob-a"></div>
-      <div class="card-blob blob-c"></div>
       <div class="card-category" data-i18n="${this.getCategoryKey(card.category)}">${this.getCategoryLabel(card.category)}</div>
       <div class="card-venue" data-i18n="${card.venue_key}"></div>
       <h3 class="card-title" data-i18n="${card.title_key}"></h3>

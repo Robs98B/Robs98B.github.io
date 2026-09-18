@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Roberto Bonini — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
@@ -30,21 +33,35 @@
       <div class="profile-container">
         
         <section class="profile-card-wrapper">
-          <div class="profile-bg-blob"></div>
           <div class="profile-card">
-             <img src="assets/profile.jpg" alt="Roberto Bonini" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=RB&background=1E1E1E&color=D0BCFF&size=256'" width="180" height="180">
+             <div class="profile-telemetry">
+               <span class="telemetry-pulse"></span>
+               <span class="telemetry-label">AI & NEUROSCIENCE // UNIBO</span>
+             </div>
+             <div class="profile-img-frame">
+               <img src="assets/profile.jpg" alt="Roberto Bonini" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=RB&background=1E1E1E&color=D0BCFF&size=256'" width="170" height="170">
+             </div>
              <h1 class="profile-name">Roberto Bonini</h1>
              <div class="profile-role" data-i18n="role_title">PhD Student</div>
-             <div class="profile-inst" data-i18n="role_inst">University of Bologna</div>
+             <div class="profile-inst"><span data-i18n="role_inst">University of Bologna</span> <span class="profile-badge-ssd">BIO/09</span></div>
              
              <div class="profile-email">
                 <a href="mailto:roberto.bonini4@unibo.it">roberto.bonini4@unibo.it</a>
              </div>
 
               <div class="social-links">
-                 <a href="https://www.linkedin.com/in/roberto-bonini-38871421b" target="_blank" rel="noopener" class="social-btn">LinkedIn</a>
-                 <a href="https://www.unibo.it/sitoweb/roberto.bonini4" target="_blank" class="social-btn" data-i18n="btn_unibo">Unibo Page</a>
-                 <a href="https://orcid.org/0009-0000-0546-6131" target="_blank" rel="noopener" class="social-btn" data-i18n="btn_orcid">ORCID</a>
+                 <a href="https://www.linkedin.com/in/roberto-bonini-38871421b" target="_blank" rel="noopener" class="social-btn">
+                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>
+                   <span>LinkedIn</span>
+                 </a>
+                 <a href="https://www.unibo.it/sitoweb/roberto.bonini4" target="_blank" class="social-btn" data-i18n="btn_unibo">
+                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+                   <span data-i18n="btn_unibo">Unibo Page</span>
+                 </a>
+                 <a href="https://orcid.org/0009-0000-0546-6131" target="_blank" rel="noopener" class="social-btn">
+                   <svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm-40.3 194.8H63.9V75.6h23.8v119.2zm-11.9-136c-8.4 0-15.2-6.8-15.2-15.2s6.8-15.2 15.2-15.2 15.2 6.8 15.2 15.2-6.8 15.2-15.2 15.2zm128.5 73.1c0 35.8-21.7 54.4-56.1 54.4h-35.8V75.6h38.2c33.3 0 53.7 18.7 53.7 56.3zm-24.9.4c0-24.2-12.7-36.4-33.8-36.4h-13.6v72.8h13.6c21.8 0 33.8-12.3 33.8-36.4z"/></svg>
+                   <span data-i18n="btn_orcid">ORCID</span>
+                 </a>
               </div>
           </div>
         </section>
